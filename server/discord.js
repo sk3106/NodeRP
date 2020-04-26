@@ -21,10 +21,10 @@ on("onResourceStart", (resourceName) => {
   }
 
   discord.sendMessage("NodeRP", "**NodeRP Discord has been started!**");
-  console.log("\x1b[33m[NodeRP] \x1b[34mDiscord Webhook Started!");
+  console.log("\x1b[33m[NodeRP] \x1b[34mDiscord Webhook Started!\x1b[37m");
 });
 
-discord.sendEmbed = (title, msg, fields = [], color = discord.colors.GREY) => {
+onNet("discord.sendEmbed", (title, msg, fields = [], color = discord.colors.GREY) => {
     if(Config.Logging.EnableLogging == true) {
 		const embed = {
 			"embeds": [{
@@ -50,7 +50,7 @@ discord.sendEmbed = (title, msg, fields = [], color = discord.colors.GREY) => {
 			body: JSON.stringify(embed)
 		})
 	}
-};
+});
 
 discord.sendMessage = (player, msg) => {
     if(Config.Logging.EnableLogging == true) {
