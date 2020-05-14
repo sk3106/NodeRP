@@ -10,11 +10,15 @@ version '1.0.0'
 client_scripts {
     'config.js',
 	'locales/*.js',
-	'client/*.js'
+	'client/*.js',
+	'extensions/**/client/*.js'
 }
 
 server_scripts {
 	'config.js',
 	'locales/*.js',
-	'server/*.js'
+	'server/*.js',
+	'extensions/**/server/*.js'
 }
+
+shared_script 'shared/*.js'

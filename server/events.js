@@ -1,5 +1,7 @@
 var geoip = require('geoip-lite');
 
+NodeRP.Player = {};
+
 on('playerConnecting', (name, setKickReason, deferrals) => {
     deferrals.defer()
 
@@ -62,11 +64,21 @@ on('playerConnecting', (name, setKickReason, deferrals) => {
 					
 					con.query('INSERT INTO players (identifier, license, discord, ip, skin, pos) VALUES (?, ?, ?, ?, ?, ?)', playerdata, (err, res) => {
 					  if(err) throw err;
-
+					  
+					  NodeRP.Player[player] = {};
+					  NodeRP.Player[player].Pos = JSON.parse(pos);
+					  NodeRP.Player[player].Skin = skin;
+					  NodeRP.Player[player].Steam = steamIdentifier;
+					  NodeRP.Player[player].firstspawn = true;
 					  console.log(`\x1b[33m[NodeRP MySQL] \x1b[37m${name} has been inserted in Database`);
 					});
 				  }
 				  else {
+					NodeRP.Player[player] = {};
+					NodeRP.Player[player].Pos = JSON.parse(result[0].pos);
+					NodeRP.Player[player].Skin = result[0].skin;
+					NodeRP.Player[player].Steam = result[0].identifier;
+					NodeRP.Player[player].firstspawn = true;
 					console.log(`\x1b[33m[NodeRP MySQL] \x1b[37m${name} has been loaded from Database`);
 				  }
 				});
@@ -76,12 +88,14 @@ on('playerConnecting', (name, setKickReason, deferrals) => {
             }
         }, 0)
     }, 0)
-})
+});
 
 on("playerDropped", (reason) => {
     let player = global.source;
 	let name = GetPlayerName(player);
 	let ip = null;
+	
+	NodeRP.Player[player] = null;
 	
 	for (let i = 0; i < GetNumPlayerIdentifiers(player); i++) {
         const identifier = GetPlayerIdentifier(player, i);
