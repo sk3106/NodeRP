@@ -30,6 +30,16 @@ NodeRP is a simple RP framework for FiveM written in JavaScript/NodeJS. It store
 ## Documentation
 You can find the documentation at [NodeRP Website](https://noderp.sk-jones.com).
 
+## TODO
+- [x] Create a base that takes care of registering, loading, spawning and saving players.
+- [x] Add locales, welcome messages, discord integration and chat functions.
+- [ ] Add essential events and functions
+- [ ] Add basic admin system
+- [ ] Add basic jobs
+- [ ] Add vehicle system
+- [ ] Add property system
+- [ ] Release BETA version
+
 ## FAQs
 **Q:** I'm getting 
 > Warning: Resource NodeRP does not specify an `fx_version` in fxmanifest.lua. 
