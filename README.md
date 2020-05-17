@@ -1,5 +1,5 @@
 # NodeRP
-[![Current Version](https://poser.pugx.org/payum/payum/version.png)](https://github.com/Jones3106/NodeRP/releases)
+[![Version](https://noderp.sk-jones.com/api/version.svg)](https://github.com/Jones3106/NodeRP/releases)
 
 ***NOTE: This framework is currently in BETA so you may find some bugs and if you do please report them.***
 
