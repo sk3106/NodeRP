@@ -35,4 +35,5 @@ You can find the documentation at [NodeRP Website](noderp.sk-jones.com).
 > Warning: Resource NodeRP does not specify an `fx_version` in fxmanifest.lua. 
 
 What should I do?
+
 **A:** You need to update your FiveM server artifacts. Download the latest version depending on your OS: [Linux](https://runtime.fivem.net/artifacts/fivem/build_proot_linux/master/) [Windows](https://runtime.fivem.net/artifacts/fivem/build_server_windows/master/).
