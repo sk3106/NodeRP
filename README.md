@@ -28,7 +28,7 @@ NodeRP is a simple RP framework for FiveM written in JavaScript/NodeJS. It store
 - Start the server and enjoy
 
 ## Documentation
-You can find the documentation at [NodeRP Website](noderp.sk-jones.com).
+You can find the documentation at [NodeRP Website](https://noderp.sk-jones.com).
 
 ## FAQs
 **Q:** I'm getting 
