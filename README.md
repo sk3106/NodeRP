@@ -17,25 +17,19 @@ NodeRP is a simple RP framework for FiveM written in JavaScript/NodeJS. It store
 
 ## Dependencies
 - NodeJS
-- MySQL
+- MySQL Database
+- Yarn(comes with FiveM Server data in most cases)
 
 ## Installation
-### Linux
 - Put the folder named 'NodeRP' in your resources folder
-- Open a Terminal by pressing `CTRL + ALT + T` or through the Menu
-- Type `cd pathtoresource` (REPLACE pathtoresource with an ACTUAL PATH like /home/John/Projects/FiveM/resources/NodeRP)
-- Type `npm install` and wait for it to finish.
-- Add `ensure NodeRP` to server.cfg
-- Open config.js and fill in the details such as MySQL username, password, discord webhook url etc
-- Start the server and enjoy
-
-### Windows
-- Put the folder named 'NodeRP' in your resources folder
-- Open a command prompt by pressing `WINDOWS KEY + R` and type `cmd` or search for it
-- Type `cd pathtoresource` (REPLACE pathtoresource with an ACTUAL PATH like C:\Users\John\Desktop\FiveM\resources\NodeRP)
-- Type `npm install` and wait for it to finish. Once it finishes, you can close the Command Prompt.
+- Import the SQL file in your Database
 - Add `ensure NodeRP` to server.cfg
 - Open config.js and fill in the details such as MySQL username, password, discord webhook url etc
 - Start the server and enjoy
 
 ## Documentation
+You can find the documentation at [NodeRP Website](noderp.sk-jones.com).
+
+## FAQs
+Q: I'm getting > Warning: Resource NodeRP does not specify an `fx_version` in fxmanifest.lua <. What should I do?
+A: You need to update your FiveM server artifacts. Download the latest version depending on your OS: [Linux](https://runtime.fivem.net/artifacts/fivem/build_proot_linux/master/) [Windows](https://runtime.fivem.net/artifacts/fivem/build_server_windows/master/).
