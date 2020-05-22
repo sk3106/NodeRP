@@ -1,21 +1,24 @@
 # NodeRP
-[![Version](https://noderp.sk-jones.com/api/version.svg)](https://github.com/Jones3106/NodeRP/releases)
+[![Version](https://noderp.sk-jones.com/api/alpha.svg)](https://github.com/Jones3106/NodeRP/releases)
 
-***NOTE: This framework is currently in BETA so you may find some bugs and if you do please report them.***
+***NOTE: This framework is currently in ALPHA. If you find any bugs please report them.***
 
-A Roleplay framework for FiveM written in NodeJS
+A Lightweight & Simple Roleplay framework for FiveM written in NodeJS
 
 
 ## Description
-NodeRP is a simple RP framework for FiveM written in JavaScript/NodeJS. It stores data in a MySQL Database and also has support for discord webhooks (look below for a full list of features). Feel free to contribute.
+NodeRP is a simple RP framework for FiveM written in JavaScript/NodeJS. It stores data in a MySQL Database and also has support for discord webhooks (look below for a full list of features). I have a small amount of time available in which I can develop this due to studies and work etc so there might be a delay in development sometimes. Contributions are welcomed no matter how small it is.
 
 ## Features
 - Data handling(saving and loading data from the Database)
 - Logging through Discord Webhooks
 - Basic admin features
+- Basic Jobs
+- Basic Properties
+- Basic Shops/Businesses
 - Commands can be added easily
 - Graphical interface for menus, dialogs etc
-- Support for creating addon resources/extensions
+- Support for creating addon resources
 
 ## Dependencies
 - NodeJS
