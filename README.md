@@ -1,4 +1,6 @@
 # NodeRP
+[![Version](https://noderp.sk-jones.com/api/version.svg)](https://github.com/Jones3106/NodeRP/releases)
+
 ***NOTE: This framework is currently in BETA so you may find some bugs and if you do please report them.***
 
 A Roleplay framework for FiveM written in NodeJS
@@ -17,25 +19,41 @@ NodeRP is a simple RP framework for FiveM written in JavaScript/NodeJS. It store
 
 ## Dependencies
 - NodeJS
-- MySQL
+- MySQL Database
+- Yarn(comes with FiveM Server data in most cases)
 
 ## Installation
-### Linux
 - Put the folder named 'NodeRP' in your resources folder
-- Open a Terminal by pressing `CTRL + ALT + T` or through the Menu
-- Type `cd pathtoresource` (REPLACE pathtoresource with an ACTUAL PATH like /home/John/Projects/FiveM/resources/NodeRP)
-- Type `npm install` and wait for it to finish.
-- Add `ensure NodeRP` to server.cfg
-- Open config.js and fill in the details such as MySQL username, password, discord webhook url etc
-- Start the server and enjoy
-
-### Windows
-- Put the folder named 'NodeRP' in your resources folder
-- Open a command prompt by pressing `WINDOWS KEY + R` and type `cmd` or search for it
-- Type `cd pathtoresource` (REPLACE pathtoresource with an ACTUAL PATH like C:\Users\John\Desktop\FiveM\resources\NodeRP)
-- Type `npm install` and wait for it to finish. Once it finishes, you can close the Command Prompt.
+- Import the SQL file in your Database
 - Add `ensure NodeRP` to server.cfg
 - Open config.js and fill in the details such as MySQL username, password, discord webhook url etc
 - Start the server and enjoy
 
 ## Documentation
+You can find the documentation at [NodeRP Website](https://noderp.sk-jones.com).
+
+## TODO
+- [x] Create a base that takes care of registering, loading, spawning and saving players.
+- [x] Add locales, welcome messages, discord integration and chat functions.
+- [ ] Add essential events and functions
+- [ ] Add basic admin system
+- [ ] Add basic jobs
+- [ ] Add vehicle system
+- [ ] Add property system
+- [ ] Release BETA version
+
+## FAQs
+**Q:** I'm getting 
+> Warning: Resource NodeRP does not specify an `fx_version` in fxmanifest.lua. 
+
+What should I do?
+
+**A:** You need to update your FiveM server artifacts. Download the latest version depending on your OS: [Linux](https://runtime.fivem.net/artifacts/fivem/build_proot_linux/master/) [Windows](https://runtime.fivem.net/artifacts/fivem/build_server_windows/master/).
+
+**Q:** I'm getting an error which I'm unable to fix, what should I do?
+
+**A:** If you have the newest server artifacts and NodeRP version and you have double checked the config.js file then you should use the create an issue option in the Issues tab of this repository. On the other hand, you could join our [discord server](https://discord.gg/g3rQsbA) for a more quick response.
+
+**Q:** I'd like to support the development of this framework, who should I contact or what do I need to do?
+
+**A:** Support and Donations are welcomed and will keep the framework running. You can contact me on [Discord](https://discord.gg/g3rQsbA)(Jones#7051) or through [Email](mailto:thejones3106@gmail.com). You can also use Patreon for donations.
