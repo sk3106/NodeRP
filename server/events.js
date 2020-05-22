@@ -118,3 +118,30 @@ on("playerDropped", (reason) => {
 
 	discord.sendEmbed('Player Dropped', `${name}`, fields, discord.colors.RED);
 });
+
+RegisterNetEvent("NodeRP.Server.Log");
+onNet("NodeRP.Server.Log", (arg) => {
+	console.log(`[NodeRP] Log: ${arg}`);
+});
+
+onNet("chatMessage", (player, name, message) => {
+	if (!message.includes('/')) {
+		CancelEvent();
+		
+		emitNet('chat:addMessage', -1, { args: [ `[GLOBAL] ^0${name}(${player}): ${message}` ], color: [189, 248, 255] });
+	}
+	else {
+		let commands = GetRegisteredCommands();
+		let index = null;
+		
+		for (index in commands) {
+			let cmdname = commands[index]['name'];
+		  
+			if (message.slice('/') != cmdname) {
+				emitNet('chat:addMessage', -1, { args: [ NodeRP.Locales[Config.Locale]['invalid_cmd'] ] });
+				CancelEvent();
+				break;
+			}
+		}
+	}
+});

@@ -9,5 +9,11 @@ var con = mysql.createConnection({
 
 con.connect(function(err) {
   if (err) throw err;
+  
   console.log("\x1b[33m[NodeRP MySQL] \x1b[32mConnected to Database!\x1b[37m");
+  /*exports["NodeRP"]["NodeRP.Server.GetAdminLevel"](global.source,
+	function(result) {
+		console.log(result);
+	}
+  );*/
 });

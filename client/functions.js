@@ -27,22 +27,3 @@ RegisterNetEvent('NodeRP.Client.Notify');
 onNet("NodeRP.Client.Notify", (msg) => {
    NodeRP.Client.Notify(msg);
 });
-
-NodeRP.Test = function() {
-	return "hello";
-};
-
-RegisterCommand("testcmd", async (source, args) => {
-	emit('chat:addMessage', { args: [ "BEFORE QUERY" ], color: [255, 97, 97] });
-	
-	con.query('SELECT * FROM players', function (err, result, fields) {
-		if(err) throw err;
-		
-		emit('chat:addMessage', { args: [ "HELLO" ], color: [255, 97, 97] });
-	});
-});
-
-NodeRP.Client.PlayerSpawned = function(pos) {
-	NodeRP.Client.Notify("YE");
-	NodeRP.Client.Notify(pos);
-};

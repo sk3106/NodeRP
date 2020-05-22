@@ -30,6 +30,10 @@ RegisterCommand("do", async (source, args) => {
 	emitNet("NodeRP.Client.SendDoMsg", -1, name, id, msg);
 });
 
+RegisterCommand("test", async (source, args) => {
+	emitNet('NodeRP.Client.TEST', source, source);
+});
+
 RegisterCommand("admins", async (source, args) => {
 	con.query('SELECT * FROM players WHERE adminlevel >= ?', 1, function (err, result, fields) {
 		if(err) throw err;
