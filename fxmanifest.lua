@@ -18,7 +18,6 @@ server_scripts {
 	'config.js',
 	'locales/*.js',
 	'server/*.js',
+	'shared/*.js',
 	'extensions/**/server/*.js'
 }
-
-shared_script 'shared/*.js'

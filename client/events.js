@@ -35,6 +35,7 @@ onNet("NodeRP.Client.SendLocalMsg", (name, id, msg) => {
 			
 			if(me == id || dist <= 15) {
 				emit('chat:addMessage', { args: [ `${name} ${NodeRP.Locales[Config.Locale]["localchat"]}: ${msg}` ], color: [230, 171, 255] });
+				break;
 			}
 		}
 	}
@@ -52,6 +53,7 @@ onNet("NodeRP.Client.ShoutMsg", (name, id, msg) => {
 			
 			if(me == id || dist <= 20) {
 				emit('chat:addMessage', { args: [ `${name} ${NodeRP.Locales[Config.Locale]["shout"]}: ${msg}` ], color: [230, 171, 255] });
+				break;
 			}
 		}
 	}
@@ -69,6 +71,7 @@ onNet("NodeRP.Client.SendMeMsg", (name, id, msg) => {
 			
 			if(me == id || dist <= 20) {
 				emit('chat:addMessage', { args: [ `** ${name} ${msg}` ], color: [230, 171, 255] });
+				break;
 			}
 		}
 	}
@@ -86,7 +89,21 @@ onNet("NodeRP.Client.SendDoMsg", (name, id, msg) => {
 			
 			if(me == id || dist <= 20) {
 				emit('chat:addMessage', { args: [ `${msg} (${name})` ], color: [230, 171, 255] });
+				break;
 			}
 		}
 	}
+});
+
+RegisterNetEvent('NodeRP.Client.TEST');
+onNet("NodeRP.Client.TEST", (id) => {
+	exports["NodeRP"]["NodeRP.Server.GetAdminLevel"](id,
+		function(result) {
+			emitNet('NodeRP.Server.Log', result);
+		}
+	);
+});
+
+onNet("chat:init", () => {
+	emit('chat:addMessage', { args: [ `${NodeRP.Locales[Config.Locale]["welcome_msg"]}` ] });
 });
