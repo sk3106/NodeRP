@@ -3,7 +3,7 @@ Config = {};
 Config.Locale = "en";											// Server Language like "en" which is for English. Look inside locales folder for other language translations
 Config.EnableExtensions = true;									// Enable or disable Extensions found in the Extensions folder. Example of an Extension is Admin.
 Config.ServerName = "Unnamed Server";							// The server name that will be shown in Messages etc
-Config.EnableAIPolice = true;									// Enable or disable the default game AI cops
+Config.EnableAIPolice = false;									// Enable or disable the default game AI cops
 
 Config.Logging = {
 	EnableLogging: true,
