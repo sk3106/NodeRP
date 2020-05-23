@@ -7,7 +7,7 @@ Config.EnableAIPolice = false;									// Enable or disable the default game AI 
 
 Config.Logging = {
 	EnableLogging: true,
-	WebhookURL: "https://discordapp.com/api/webhooks/703750609370873908/BTFGn-pH3b4dgq4Xm-aXbckYh6a3Kvq3VU7sbMkd6-cRSNf1v6KuTnZkv6fcsifc4wMg",
+	WebhookURL: "",
 	WebhookIMG: "",
 	WebhookName: "NodeRP"
 };
@@ -23,8 +23,8 @@ Config.ARanks = {												// You can define as many admin ranks as you want h
 };
 
 Config.DB = {
-	User: "root",		 	// Your Database username
-	Pass: "test",			// 	Your Database password
-	Host: "localhost",		//	Your Database hostname
+	User: "",		 	// 	Your Database username
+	Pass: "",			// 	Your Database password
+	Host: "",			//	Your Database hostname
 	Name: "noderp"			// 	Name of the Database that you want to use
 };
