@@ -8,7 +8,7 @@ version '1.0.0'
 
 -- What to run
 client_scripts {
-    'config.js',
+    	'config.js',
 	'locales/*.js',
 	'client/*.js',
 	'extensions/**/client/*.js'
@@ -21,3 +21,5 @@ server_scripts {
 	'shared/*.js',
 	'extensions/**/server/*.js'
 }
+
+dependency 'yarn'
