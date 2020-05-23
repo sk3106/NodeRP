@@ -1,7 +1,7 @@
 # NodeRP
 [![Version](https://noderp.sk-jones.com/api/v1.svg)](https://github.com/Jones3106/NodeRP/releases)
 
-***NOTE: This framework is currently in ALPHA. If you find any bugs please report them.***
+***NOTE: This framework is currently in ALPHA. If you find any bugs please report them and do not use it for production.***
 
 A Lightweight & Simple Roleplay framework for FiveM written in NodeJS
 
@@ -66,4 +66,4 @@ What should I do?
 
 **Q:** I'd like to support the development of this framework, who should I contact or what do I need to do?
 
-**A:** Support and Donations are welcomed and will keep the framework running. You can contact me on [Discord](https://discord.gg/g3rQsbA)(Jones#7051) or through [Email](mailto:thejones3106@gmail.com). You can also use Patreon for donations.
+**A:** Support and Donations are welcomed and will keep the framework running. You can contact me on [Discord](https://discord.gg/g3rQsbA)(Jones#7051) or through [Email](mailto:thejones3106@gmail.com).
