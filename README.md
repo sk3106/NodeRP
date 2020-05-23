@@ -1,5 +1,5 @@
 # NodeRP
-[![Version](https://noderp.sk-jones.com/api/alpha1.svg)](https://github.com/Jones3106/NodeRP/releases)
+[![Version](https://noderp.sk-jones.com/api/alpha.svg)](https://github.com/Jones3106/NodeRP/releases)
 
 ***NOTE: This framework is currently in ALPHA. If you find any bugs please report them.***
 
