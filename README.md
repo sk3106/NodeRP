@@ -69,4 +69,4 @@ What should I do?
 **A:** Support and Donations are welcomed and will keep the framework running. You can contact me on [Discord](https://discord.gg/g3rQsbA)(Jones#7051) or through [Email](mailto:thejones3106@gmail.com).
 
 ## Discord
-[![Discord](https://noderp.sk-jones.com/discord/embed.html)](https://discord.com/invite/FXXSta?utm_source=Discord%20Widget&utm_medium=Connect)
+[![Discord](<iframe src="https://discordapp.com/widget?id=711662553549504844&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0"></iframe>)](https://discord.com/invite/FXXSta?utm_source=Discord%20Widget&utm_medium=Connect)
