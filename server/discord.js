@@ -24,6 +24,14 @@ on("onResourceStart", (resourceName) => {
   console.log("\x1b[33m[NodeRP] \x1b[34mDiscord Webhook Started!\x1b[37m");
 });
 
+on("onResourceStop", (resourceName) => {
+  if(GetCurrentResourceName() != resourceName) {
+    return;
+  }
+
+  discord.sendMessage("NodeRP", "**NodeRP is shutting down...**");
+});
+
 onNet("discord.sendEmbed", (title, msg, fields = [], color = discord.colors.GREY) => {
     if(Config.Logging.EnableLogging == true) {
 		const embed = {

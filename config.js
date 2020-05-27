@@ -1,4 +1,9 @@
 Config = {};
+NodeRP = {};
+NodeRP.Locales = {};
+NodeRP.Server = {};
+NodeRP.Player = {};
+NodeRP.Commands = {};
 
 Config.Locale = "en";											// Server Language like "en" which is for English. Look inside locales folder for other language translations
 Config.EnableExtensions = true;									// Enable or disable Extensions found in the Extensions folder. Example of an Extension is Admin.
@@ -7,8 +12,8 @@ Config.EnableAIPolice = false;									// Enable or disable the default game AI 
 
 Config.Logging = {
 	EnableLogging: true,
-	WebhookURL: "",
-	WebhookIMG: "",
+	WebhookURL: "https://discordapp.com/api/webhooks/714860345289867324/2FXyoUniGWxkJ3eqFehoKMbxk5TnrFe9g7W8xfasZO3Qi_HAhPGBGq49rH373Leyy3oo",
+	WebhookIMG: "https://i.imgur.com/MVkUD0Y.png",
 	WebhookName: "NodeRP"
 };
 
@@ -23,8 +28,8 @@ Config.ARanks = {												// You can define as many admin ranks as you want h
 };
 
 Config.DB = {
-	User: "",		 	// 	Your Database username
-	Pass: "",			// 	Your Database password
-	Host: "",			//	Your Database hostname
+	User: "root",		 	// 	Your Database username
+	Pass: "test",			// 	Your Database password
+	Host: "localhost",			//	Your Database hostname
 	Name: "noderp"			// 	Name of the Database that you want to use
 };

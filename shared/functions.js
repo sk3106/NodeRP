@@ -51,3 +51,28 @@ exports('NodeRP.Server.GetPlayerData', (id, cb) => {
 		}
 	});
 });
+
+exports('NodeRP.Server.SavePlayer', (id, cb) => {
+	if (id != null) {
+		let me = null;
+		for (me in NodeRP.Player) {
+		console.log(`OK: ${NodeRP.Player[me]} OKK: ${me} OKKK: ${NodeRP.Player}`);
+		}
+		if (NodeRP.Player[id]['Skin'] == null) NodeRP.Player[id].Skin = 'test';
+		
+		let data = null;
+		let identifier = GetPlayerIdentifier(id, 0);
+		let skin = NodeRP.Player[id].Skin, pos = NodeRP.Player[id].Pos, level = NodeRP.Player[id].Level, job = NodeRP.Player[id].Job, job_rank = NodeRP.Player[id].Job_rank, loadout = NodeRP.Player[id].Loadout, dead = NodeRP.Player[id].Dead;
+		let playa = [skin, pos, adminlevel, job, job_rank, loadout, dead];
+		
+		con.query('UPDATE players SET skin = ?, pos = ?, adminlevel = ?, job = ?, job_rank = ?, loadout = ?, dead = ?', playa, (err, res) => {
+			if (err) {
+				cb(false);
+				throw err;
+			}
+			else {
+				return cb(true);
+			}
+		});
+	}
+});
