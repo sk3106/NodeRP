@@ -1,3 +1,5 @@
+CREATE DATABASE IF NOT EXISTS noderp;
+
 CREATE TABLE `identity` (
   `identifier` varchar(60) NOT NULL,
   `firstname` text NOT NULL,
