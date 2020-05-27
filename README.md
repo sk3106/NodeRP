@@ -26,7 +26,7 @@ NodeRP is a simple RP framework for FiveM written in JavaScript/NodeJS. It store
 - Yarn(comes with FiveM Server data in most cases)
 
 ## Installation
-- Put the folder named 'NodeRP' in your resources folder
+- Put the folder named 'NodeRP' in your resources/\[local] folder
 - Import the SQL file in your Database
 - Add `ensure NodeRP` to server.cfg
 - Open config.js and fill in the details such as MySQL username, password, discord webhook url etc
