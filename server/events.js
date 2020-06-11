@@ -1,4 +1,7 @@
-var geoip = require('geoip-lite');
+RegisterNetEvent('NodeRP.Ready');
+onNet('NodeRP.Ready', () => {
+	console.log("\x1b[33m[NodeRP] \x1b[32mNodeRP is ready!\x1b[37m");
+});
 
 on('playerConnecting', (name, setKickReason, deferrals) => {
     deferrals.defer()
@@ -12,6 +15,7 @@ on('playerConnecting', (name, setKickReason, deferrals) => {
 		let ip = null;
 		let license = null;
 		let discord = null;
+		let PC = null;
 		
         for(let i = 0; i < GetNumPlayerIdentifiers(player); i++) {
             const identifier = GetPlayerIdentifier(player, i);
@@ -38,39 +42,19 @@ on('playerConnecting', (name, setKickReason, deferrals) => {
             if (steamIdentifier === null) {
                 deferrals.done("You are not connected to Steam.")
             } else {
-				let fields = [{
-					name: `Name`,
-					value: GetPlayerName(player),
-					inline: true
-				},
-				{
-					name: `IP`,
-					value: ip.slice('ip:'),
-					inline: true
-				},
-				{
-					name: `Steam Identifier`,
-					value: steamIdentifier.slice('steam:'),
-					inline: true
-				},
-				{
-					name: `Discord`,
-					value: discord.slice('discord:'),
-					inline: true
-				}];
-				
-				con.query('SELECT * FROM players WHERE identifier = ?', steamIdentifier, function (err, result, fields) {
+				NodeRP.DB.Query('SELECT * FROM players WHERE identifier = ?', steamIdentifier, function (err, result, fields) {
 				  if(err) throw err;
 
 				  if(result[0].identifier == null) {
 					let skin = "mp_m_freemode_01";
 					let pos = JSON.stringify({X: -1070.906250, Y: -2972.122803, Z: 13.773568});
-					//var geo = geoip.lookup(`${ip}`);
-					//var country = geo.country;
+					let newip = ip.slice("ip:");
+					var geo = exports['NodeRP']['GetGeoIP'](newip);
+					PC = geo.country;
 					
-					const playerdata = [steamIdentifier, license, discord, ip, skin, pos];
+					const playerdata = [steamIdentifier, license, discord, ip, skin, pos, PC];
 					
-					con.query('INSERT INTO players (identifier, license, discord, ip, skin, pos) VALUES (?, ?, ?, ?, ?, ?)', playerdata, (err, res) => {
+					NodeRP.DB.Query('INSERT INTO players (identifier, license, discord, ip, skin, pos, country) VALUES (?, ?, ?, ?, ?, ?, ?)', playerdata, (err, res) => {
 						if(err) throw err;
 					  
 						NodeRP.Player[player] = {};
@@ -83,6 +67,7 @@ on('playerConnecting', (name, setKickReason, deferrals) => {
 						NodeRP.Player[player].Level = 0;
 						NodeRP.Player[player].Job = 'unemployed';
 						NodeRP.Player[player].Job_rank = 0;
+						NodeRP.Player[player].Country = PC;
 					
 						console.log(`\x1b[33m[NodeRP MySQL] \x1b[37m${name} ${NodeRP.Locales[Config.Locale]["Player_Inserted"]}`);
 					});
@@ -97,6 +82,7 @@ on('playerConnecting', (name, setKickReason, deferrals) => {
 					NodeRP.Player[player].Level = result[0].adminlevel;
 					NodeRP.Player[player].Job = result[0].job;
 					NodeRP.Player[player].Job_rank = result[0].job_rank;
+					NodeRP.Player[player].Country = result[0].country;
 					
 					if (NodeRP.Player[player].Skin == null) {
 						NodeRP.Player[player].Skin = 'mp_m_freemode_01';
@@ -109,6 +95,38 @@ on('playerConnecting', (name, setKickReason, deferrals) => {
 					console.log(`\x1b[33m[NodeRP MySQL] \x1b[37m${name} ${NodeRP.Locales[Config.Locale]["Player_Loaded"]}`);
 				  }
 				});
+				
+				let embedip = ip.slice('ip:');
+				let embedsteam = steamIdentifier.slice('steam:');
+				let embeddiscord = discord.slice('discord:');
+				
+				if (PC == null) PC = 'Unknown';
+				
+				let fields = [{
+					name: `Name`,
+					value: GetPlayerName(player),
+					inline: true
+				},
+				{
+					name: `IP`,
+					value: embedip,
+					inline: true
+				},
+				{
+					name: `Steam Identifier`,
+					value: embedsteam,
+					inline: true
+				},
+				{
+					name: `Discord`,
+					value: embeddiscord,
+					inline: true
+				},
+				{
+					name: `Country`,
+					value: PC,
+					inline: true
+				}];
 				
 				emit("discord.sendEmbed", `${NodeRP.Locales[Config.Locale]["Discord-Player_Joined"]}`, `${name}`, fields, 4289797);
                 deferrals.done()
@@ -167,10 +185,41 @@ onNet("NodeRP.Server.PlayerSpawned", (pos, skin) => {
 	const player = global.source;
 	let name = GetPlayerName(player);
 	
+	if (NodeRP.Player[player] == null) NodeRP.Player[player] = {};
+	
 	NodeRP.Player[player].Skin = skin;
 	NodeRP.Player[player].Pos = pos;
-	console.log(`[NodeRP] ${name} spawned`);
+	
+	console.log(`\x1b[33m[NodeRP]\x1b[37m ${name} spawned & saved!`);
 });
+
+NodeRP.Server.SavePlayers = function() {
+	console.log('HELLLO');
+	const numIndices = GetNumPlayerIndices();
+	
+	console.log(`HELLI: ${numIndices}`);
+	
+	for (let pidx = 0; pidx < numIndices; pidx++) {
+		console.log(`YEYE: ${pidx}`);
+		const player = GetPlayerFromIndex(pidx);
+		console.log(`PLAYA: ${player}`);
+		let curid = GetPlayerIdentifier(player, 0);
+		let pos = JSON.stringify(NodeRP.Player[player].Pos), skin = NodeRP.Player[player].Skin, dead = NodeRP.Player[player].Dead;
+		let loadout = NodeRP.Player[player].Loadout, level = NodeRP.Player[player].Level, job = NodeRP.Player[player].Job, job_rank = NodeRP.Player[player].Job_rank, country = NodeRP.Player[player].Country;
+		let playa = [skin, pos, level, job, job_rank, loadout, dead, country];
+		
+		NodeRP.DB.Query('UPDATE players SET skin = ?, pos = ?, adminlevel = ?, job = ?, job_rank = ?, loadout = ?, dead = ?, country = ?', playa, (err, res) => {
+			if (err) throw err;
+			
+			if (!err) {
+				console.log(`\x1b[33m[NodeRP]\x1b[37m Saved ${numIndices} players!`);
+				break;
+			}
+		});
+	}
+}
+
+setInterval(NodeRP.Server.SavePlayers, 10000);
 
 onNet("chatMessage", (player, name, message) => {
 	if (!message.includes('/')) {

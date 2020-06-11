@@ -30,18 +30,6 @@ NodeRP.Server.RegisterCommand("do", "player", async (source, args) => {
 	emitNet("NodeRP.Client.SendDoMsg", -1, name, id, msg);
 }, NodeRP.Locales[Config.Locale]["chat_suggestions"]["do"]);
 
-NodeRP.Server.RegisterCommand("test", "player", async (source, args) => {
-	let index = null;
-	console.log("HELLO");
-	for (index in NodeRP.Player) {
-	console.log(`ye: ${NodeRP.Player} YEE: ${index} YEEE: ${NodeRP.Player[index]}`);
-	for (yo in NodeRP.Player[index]) {
-		console.log(` te: ${NodeRP.Player[index][yo]}`);
-	}
-	}
-	console.log(`POS: ${NodeRP.Player[source].Pos} LEVEL: ${NodeRP.Player[source].Level} DED: ${NodeRP.Player[source].Dead} JOB: ${NodeRP.Player[source].Job} Loadout: ${NodeRP.Player[source].Loadout}`);
-});
-
 NodeRP.Server.RegisterCommand("cmds", "player", async (source, args) => {
 	let commands = NodeRP.Commands;
 	let cmd = null;
@@ -57,7 +45,7 @@ NodeRP.Server.RegisterCommand("cmds", "player", async (source, args) => {
 }, NodeRP.Locales[Config.Locale]["chat_suggestions"]["cmds"]);
 
 NodeRP.Server.RegisterCommand("admins", "player", async (source, args) => {
-	con.query('SELECT * FROM players WHERE adminlevel >= ?', 1, function (err, result, fields) {
+	NodeRP.DB.Query('SELECT * FROM players WHERE adminlevel >= ?', 1, function (err, result, fields) {
 		if(err) throw err;
 		
 		if (result[0] != null && result[0].adminlevel >= 1) {

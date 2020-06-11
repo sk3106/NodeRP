@@ -16,6 +16,7 @@ client_scripts {
 
 server_scripts {
 	'config.js',
+	'sql.js',
 	'locales/*.js',
 	'server/functions.js',
 	'server/*.js',

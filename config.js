@@ -1,5 +1,6 @@
 Config = {};
 NodeRP = {};
+NodeRP.DB = {};
 NodeRP.Locales = {};
 NodeRP.Server = {};
 NodeRP.Player = {};
