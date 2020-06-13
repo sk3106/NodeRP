@@ -1,14 +1,15 @@
 on('onClientGameTypeStart', () => {
   let pos = NodeRP.Player[GetPlayerServerId(PlayerId())].Pos;
   let mdl = NodeRP.Player[GetPlayerServerId(PlayerId())].Skin;
-  if(pos == null){pos = {x: 686.245, y: 577.950, z: 130.461}}
-  if(mdl == null){mdl = 'a_m_m_skater_01'}
+  
+  if (pos == null) pos = {x: 686.245, y: 577.950, z: 130.461};
+  if (mdl == null) mdl = 'a_m_m_skater_01';
   
   exports.spawnmanager.setAutoSpawnCallback(() => {
     exports.spawnmanager.spawnPlayer({
-      x: pos.x,
-      y: pos.y,
-      z: pos.z,
+      x: pos['x'],
+      y: pos['y'],
+      z: pos['z'],
       model: mdl
     }, () => {
       emit('chat:addMessage', {
@@ -95,15 +96,15 @@ onNet("NodeRP.Client.SendDoMsg", (name, id, msg) => {
 	}
 });
 
-RegisterNetEvent('NodeRP.Client.TEST');
-onNet("NodeRP.Client.TEST", (id) => {
-	exports["NodeRP"]["NodeRP.Server.GetAdminLevel"](id,
-		function(result) {
-			emitNet('NodeRP.Server.Log', result);
-		}
-	);
-});
-
-onNet("chat:init", () => {
+onNet("playerSpawned", () => {
 	emit('chat:addMessage', { args: [ `${NodeRP.Locales[Config.Locale]["welcome_msg"]}` ] });
+	
+	const ped = PlayerPedId();
+	let model = 'mp_m_freemode_01';
+	
+	SetEntityCoords(ped, -1070.90625, -2972.122803, 13.773568 + 0.0);
+	
+	let pos = GetEntityCoords(ped);
+	
+	emitNet('NodeRP.Server.PlayerSpawned', pos, model);
 });

@@ -3,7 +3,7 @@ fx_version 'bodacious'
 game 'gta5'
 
 author 'Jones3106'
-description 'A Roleplay framework for FiveM written in NodeJS'
+description 'A simple roleplay framework for FiveM written in NodeJS'
 version '1.0.0'
 
 -- What to run
@@ -16,8 +16,12 @@ client_scripts {
 
 server_scripts {
 	'config.js',
+	'sql.js',
 	'locales/*.js',
+	'server/functions.js',
 	'server/*.js',
 	'shared/*.js',
 	'extensions/**/server/*.js'
 }
+
+dependency 'yarn'

@@ -1,41 +1,51 @@
-RegisterCommand("l", async (source, args) => {
+NodeRP.Server.RegisterCommand("l", "player", async (source, args) => {
 	let msg = args.join(" ");
 	let name = GetPlayerName(source);
 	let id = source;
 	
 	emitNet("NodeRP.Client.SendLocalMsg", -1, name, id, msg);
-});
+}, NodeRP.Locales[Config.Locale]["chat_suggestions"]["localchat"]);
 
-RegisterCommand("s", async (source, args) => {
+NodeRP.Server.RegisterCommand("s", "player", async (source, args) => {
 	let msg = args.join(" ");
 	let name = GetPlayerName(source);
 	let id = source;
 	
 	emitNet("NodeRP.Client.ShoutMsg", -1, name, id, msg);
-});
+}, NodeRP.Locales[Config.Locale]["chat_suggestions"]["shoutchat"]);
 
-RegisterCommand("me", async (source, args) => {
+NodeRP.Server.RegisterCommand("me", "player", async (source, args) => {
 	let msg = args.join(" ");
 	let name = GetPlayerName(source);
 	let id = source;
 	
 	emitNet("NodeRP.Client.SendMeMsg", -1, name, id, msg);
-});
+}, NodeRP.Locales[Config.Locale]["chat_suggestions"]["me"]);
 
-RegisterCommand("do", async (source, args) => {
+NodeRP.Server.RegisterCommand("do", "player", async (source, args) => {
 	let msg = args.join(" ");
 	let name = GetPlayerName(source);
 	let id = source;
 	
 	emitNet("NodeRP.Client.SendDoMsg", -1, name, id, msg);
-});
+}, NodeRP.Locales[Config.Locale]["chat_suggestions"]["do"]);
 
-RegisterCommand("test", async (source, args) => {
-	emitNet('NodeRP.Client.TEST', source, source);
-});
+NodeRP.Server.RegisterCommand("cmds", "player", async (source, args) => {
+	let commands = NodeRP.Commands;
+	let cmd = null;
 
-RegisterCommand("admins", async (source, args) => {
-	con.query('SELECT * FROM players WHERE adminlevel >= ?', 1, function (err, result, fields) {
+	emitNet('chat:addMessage', source, { args: [ `${NodeRP.Locales[Config.Locale]["Available_Commands"]}:` ] });
+
+	for (cmd in commands) {
+		if (NodeRP.Commands[cmd].group == 'player') {
+			emitNet('chat:addMessage', source, { args: [ `${cmd}` ] });
+		}
+	}
+	
+}, NodeRP.Locales[Config.Locale]["chat_suggestions"]["cmds"]);
+
+NodeRP.Server.RegisterCommand("admins", "player", async (source, args) => {
+	NodeRP.DB.Query('SELECT * FROM players WHERE adminlevel >= ?', 1, function (err, result, fields) {
 		if(err) throw err;
 		
 		if (result[0] != null && result[0].adminlevel >= 1) {
@@ -64,4 +74,4 @@ RegisterCommand("admins", async (source, args) => {
 			emitNet('chat:addMessage', source, { args: [ `${NodeRP.Locales[Config.Locale]["no_admins_online"]}` ], color: [255, 97, 97] });
 		}
 	});
-});
+}, NodeRP.Locales[Config.Locale]["chat_suggestions"]["admins"]);

@@ -1,21 +1,28 @@
 # NodeRP
-[![Version](https://noderp.sk-jones.com/api/version.svg)](https://github.com/Jones3106/NodeRP/releases)
+[![Version](https://noderp.sk-jones.com/api/v1.svg)](https://github.com/Jones3106/NodeRP/releases)
 
-***NOTE: This framework is currently in BETA so you may find some bugs and if you do please report them.***
+***NOTE: This framework is currently in ALPHA. If you find any bugs please report them and do not use it for production.***
 
-A Roleplay framework for FiveM written in NodeJS
+A Lightweight & Simple Roleplay framework for FiveM written in NodeJS
 
 
 ## Description
-NodeRP is a simple RP framework for FiveM written in JavaScript/NodeJS. It stores data in a MySQL Database and also has support for discord webhooks (look below for a full list of features). Feel free to contribute.
+NodeRP is a simple RP framework for FiveM written in JavaScript/NodeJS. It stores data in a MySQL Database and also has support for discord webhooks (look below for a full list of features). I have a small amount of time available in which I can develop this due to studies and work etc so there might be a delay in development sometimes. Contributions are welcomed no matter how small it is.
 
 ## Features
+- Easy to use API
+- Everything can be configured in config.js and Database
 - Data handling(saving and loading data from the Database)
 - Logging through Discord Webhooks
+- Language Localization
 - Basic admin features
+- Basic Jobs
+- Basic Properties
+- Basic Shops/Businesses
+- Basic vehicle system
 - Commands can be added easily
 - Graphical interface for menus, dialogs etc
-- Support for creating addon resources/extensions
+- Support for creating addon resources
 
 ## Dependencies
 - NodeJS
@@ -23,24 +30,33 @@ NodeRP is a simple RP framework for FiveM written in JavaScript/NodeJS. It store
 - Yarn(comes with FiveM Server data in most cases)
 
 ## Installation
-- Put the folder named 'NodeRP' in your resources folder
-- Import the SQL file in your Database
+- Put the folder named 'NodeRP' in your resources/\[local] folder
+- Create a Database with the name of your choice(don't forget to set it in config.js)
 - Add `ensure NodeRP` to server.cfg
+- Add `add_ace resource.NodeRP command.add_principal allow` and `add_ace resource.NodeRP command.add_ace allow` to server.cfg
 - Open config.js and fill in the details such as MySQL username, password, discord webhook url etc
 - Start the server and enjoy
 
 ## Documentation
-You can find the documentation at [NodeRP Website](https://noderp.sk-jones.com).
+You can find the documentation at [NodeRP Website](https://noderp.sk-jones.com:3000).
 
 ## TODO
+### V1.0.0 ALPHA
 - [x] Create a base that takes care of registering, loading, spawning and saving players.
-- [x] Add locales, welcome messages, discord integration and chat functions.
-- [ ] Add essential events and functions
+- [x] Add welcome messages, discord integration, chat functions and ability to create locales.
+- [x] Add essential events and functions
+- [x] Release ALPHA version
+
+### V2.0.0 BETA
+- [ ] Change player authentication from Steam to License
+- [x] Save player skin and position every x minutes
+- [ ] Spawn player at last position with last skin
+- [ ] Add menus, blips
+- [ ] Add basic shops
 - [ ] Add basic admin system
 - [ ] Add basic jobs
-- [ ] Add vehicle system
-- [ ] Add property system
-- [ ] Release BETA version
+- [ ] Add basic vehicle system
+- [ ] Add basic property system
 
 ## FAQs
 **Q:** I'm getting 
@@ -56,4 +72,4 @@ What should I do?
 
 **Q:** I'd like to support the development of this framework, who should I contact or what do I need to do?
 
-**A:** Support and Donations are welcomed and will keep the framework running. You can contact me on [Discord](https://discord.gg/g3rQsbA)(Jones#7051) or through [Email](mailto:thejones3106@gmail.com). You can also use Patreon for donations.
+**A:** Support and Donations are welcomed and will keep the framework running. You can contact me on [Discord](https://discord.gg/g3rQsbA)(Jones#7051) or through [Email](mailto:thejones3106@gmail.com).
