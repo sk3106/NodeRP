@@ -45,7 +45,7 @@ You can find the documentation at [NodeRP Website](https://noderp.sk-jones.com:3
 - [x] Create a base that takes care of registering, loading, spawning and saving players.
 - [x] Add welcome messages, discord integration, chat functions and ability to create locales.
 - [x] Add essential events and functions
-- [ ] Release ALPHA version
+- [x] Release ALPHA version
 
 ### V2.0.0 BETA
 - [ ] Change player authentication from Steam to License
