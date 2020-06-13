@@ -45,12 +45,12 @@ on('playerConnecting', (name, setKickReason, deferrals) => {
 				NodeRP.DB.Query('SELECT * FROM players WHERE identifier = ?', steamIdentifier, function (err, result, fields) {
 				  if(err) throw err;
 
-				  if(result[0].identifier == null) {
+				  if(result[0] == null || result[0].identifier == null) {
 					let skin = "mp_m_freemode_01";
 					let pos = JSON.stringify({X: -1070.906250, Y: -2972.122803, Z: 13.773568});
 					let newip = ip.slice("ip:");
 					var geo = exports['NodeRP']['GetGeoIP'](newip);
-					PC = geo.country;
+					if (geo != null) PC = geo.country else PC = 'unknown';
 					
 					const playerdata = [steamIdentifier, license, discord, ip, skin, pos, PC];
 					
