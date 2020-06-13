@@ -4,7 +4,7 @@ game 'gta5'
 
 author 'Jones3106'
 description 'A simple roleplay framework for FiveM written in NodeJS'
-version '1.0.0'
+version '1.0.5'
 
 -- What to run
 client_scripts {
