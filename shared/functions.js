@@ -1,3 +1,8 @@
+RegisterNetEvent('NodeRP.Server.Load');
+onNet('NodeRP.Server.Load', function (cb) {
+	return cb(NodeRP);
+});
+
 exports('NodeRP.Server.GetAdminLevel', (id, cb) => {
 	let mylvl = null;
 	let identifier = GetPlayerIdentifier(id, 0);
