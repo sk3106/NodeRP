@@ -72,4 +72,4 @@ What should I do?
 
 **Q:** I'd like to support the development of this framework, who should I contact or what do I need to do?
 
-**A:** Support and Donations are welcomed and will keep the framework running. You can contact me on [Discord](https://discord.gg/g3rQsbA)(Jones#7051) or through [Email](mailto:thejones3106@gmail.com).
+**A:** Support and Donations are welcomed and will keep the framework running. You can contact me on [Discord](https://discord.gg/g3rQsbA)(Jones#7051) or through [Email](mailto:jones@sk-jones.com).
