@@ -1,5 +1,5 @@
 # NodeRP
-[![](https://noderp.sk-jones.com/api/v1.html)](https://github.com/Jones3106/NodeRP/releases)
+[![](https://noderp.sk-jones.com/api/v1.svg)](https://github.com/Jones3106/NodeRP/releases)
 
 ***NOTE: This framework is currently in ALPHA. If you find any bugs please report them and do not use it for production.***
 
@@ -38,7 +38,7 @@ NodeRP is a simple RP framework for FiveM written in JavaScript/NodeJS. It store
 - Start the server and enjoy
 
 ## Documentation
-You can find the documentation at [NodeRP Website](https://noderp.sk-jones.com:3000).
+You can find the documentation at [NodeRP Website](https://noderp.sk-jones.com).
 
 ## TODO
 ### V1.0.0 ALPHA
