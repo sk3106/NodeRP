@@ -1,6 +1,13 @@
-RegisterNetEvent('NodeRP.Server.Load');
-onNet('NodeRP.Server.Load', function (cb) {
-	return cb(NodeRP);
+exports('NodeRP.Server.GetPlayerIdentifier', (player, name) => {
+	if (player != null && name != null) {
+		for (let i = 0; i < GetNumPlayerIdentifiers(player); i++) {
+			const identifier = GetPlayerIdentifier(player, i);
+
+			if (identifier.includes(`${name}:`)) {
+				return identifier;
+			}
+		}
+	}
 });
 
 exports('NodeRP.Server.GetAdminLevel', (id, cb) => {

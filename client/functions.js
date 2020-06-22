@@ -1,5 +1,3 @@
-NodeRP.Client = {};
-
 NodeRP.Client.GetPOS = function() {
 	let pos = GetEntityCoords(PlayerPedId(), false);
 	let coords = JSON.stringify(pos);
@@ -27,3 +25,9 @@ RegisterNetEvent('NodeRP.Client.Notify');
 onNet("NodeRP.Client.Notify", (msg) => {
    NodeRP.Client.Notify(msg);
 });
+
+if (!Config.EnableAIDispatch) {
+	for (let i = 0; i < 15; i++) {
+		EnableDispatchService(i, false);
+	}
+}

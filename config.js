@@ -1,15 +1,9 @@
 Config = {};
-NodeRP = {};
-NodeRP.DB = {};
-NodeRP.Locales = {};
-NodeRP.Server = {};
-NodeRP.Player = {};
-NodeRP.Commands = {};
 
 Config.Locale = "en";											// Server Language like "en" which is for English. Look inside locales folder for other language translations
 Config.EnableExtensions = true;									// Enable or disable Extensions found in the Extensions folder. Example of an Extension is Admin.
 Config.ServerName = "Unnamed Server";							// The server name that will be shown in Messages etc
-Config.EnableAIPolice = false;									// Enable or disable the default game AI cops
+Config.EnableAIDispatch = false;									// Enable or disable the default game AI cops, medics, millitary etc
 
 Config.Logging = {
 	EnableLogging: true,
