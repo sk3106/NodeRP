@@ -78,3 +78,4 @@ What should I do?
 ![Discord Embed](https://i.imgur.com/rmp3oxV.png)
 ![NodeRP Startup Messages First Time](https://i.imgur.com/esti5tA.png)
 ![NodeRP Usual Startup Messages](https://i.imgur.com/1Zgfxm5.png)
+![NodeRP First generation spawn](https://i.imgur.com/Q5C5sNu.jpg)
