@@ -41,20 +41,22 @@ NodeRP is a simple RP framework for FiveM written in JavaScript/NodeJS. It store
 You can find the documentation at [NodeRP Website](https://noderp.sk-jones.com).
 
 ## TODO
-### V1.0.0 ALPHA
-- [x] Create a base that takes care of registering, loading, spawning and saving players.
-- [x] Add welcome messages, discord integration, chat functions and ability to create locales.
-- [x] Add essential events and functions
-- [x] Release ALPHA version
+### Misc
+- [ ] Find a way to get info from server on client like a callback
+- [ ] Add basic UI
+- [ ] Write documentation on website
 
-### V2.0.0 BETA
+### v2.0.0 BETA
 - [ ] Change player authentication from Steam to License
+- [ ] Fix player auto save issues
 - [x] Save player skin and position every x minutes
 - [ ] Spawn player at last position with last skin
+- [ ] Add a better way to create NodeRP based resources
+
+### v2.x.x BETA
 - [ ] Add menus, blips
 - [ ] Add basic shops
 - [ ] Add basic admin system
-- [ ] Add basic jobs
 - [ ] Add basic vehicle system
 - [ ] Add basic property system
 
