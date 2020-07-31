@@ -1,3 +1,5 @@
+# ***NOTE: Work on this has been stopped for an unknown time period due to time difficulties, lack of support & lack of interest.***
+
 # NodeRP
 [![](https://noderp.sk-jones.com/api/v1.svg)](https://github.com/Jones3106/NodeRP/releases) [![](https://img.shields.io/github/license/Jones3106/NodeRP)](https://github.com/Jones3106/NodeRP/blob/master/LICENSE) [![Hits](http://hits.dwyl.com/Jones3106/NodeRP.svg)](http://hits.dwyl.com/Jones3106/NodeRP)
 
