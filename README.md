@@ -1,5 +1,5 @@
 # NodeRP
-[![](https://noderp.sk-jones.com/api/v1.svg)](https://github.com/Jones3106/NodeRP/releases) [![](https://img.shields.io/github/license/Jones3106/NodeRP)](https://github.com/Jones3106/NodeRP/blob/master/LICENSE) [![Hits](http://hits.dwyl.com/Jones3106/NodeRP.svg)](http://hits.dwyl.com/Jones3106/NodeRP)
+[![](https://noderp.sk-jones.com/api/v1.svg)](https://github.com/sk3106/NodeRP/releases) [![](https://img.shields.io/github/license/sk3106/NodeRP)](https://github.com/sk3106/NodeRP/blob/master/LICENSE) [![Hits](http://hits.dwyl.com/sk3106/NodeRP.svg)](http://hits.dwyl.com/sk3106/NodeRP)
 
 
 ***NOTE: This framework is currently in ALPHA. If you find any bugs please report them and do not use it for production.***
@@ -48,7 +48,8 @@ You can find the documentation at [NodeRP Website](https://noderp.sk-jones.com).
 - [ ] Write documentation on website
 
 ### v2.0.0 BETA
-- [ ] Change player authentication from Steam to License
+- [ ] Find a way to connect other resources/scripts through an API
+- [x] Change player authentication from Steam to License
 - [ ] Fix player auto save issues
 - [x] Save player skin and position every x minutes
 - [ ] Spawn player at last position with last skin
@@ -75,7 +76,7 @@ What should I do?
 
 **Q:** I'd like to support the development of this framework, who should I contact or what do I need to do?
 
-**A:** Support and Donations are welcomed and will keep the framework running. You can contact me on [Discord](https://discord.gg/g3rQsbA)(Jones#7051) or through [Email](mailto:jones@sk-jones.com).
+**A:** Support( Any type e.g development etc ) and Donations are welcomed and will help keep the framework running. You can contact me on [Discord](https://discord.gg/uCWBMcQg)(Jones#6426) or through [Email](mailto:mail.thejones@gmail.com).
 
 ## Screenshots
 ![Discord Embed](https://i.imgur.com/rmp3oxV.png)
