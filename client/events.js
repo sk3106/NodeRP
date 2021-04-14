@@ -1,28 +1,4 @@
-on('onClientGameTypeStart', () => {
-  let pos = NodeRP.Player[GetPlayerServerId(PlayerId())].Pos;
-  let mdl = NodeRP.Player[GetPlayerServerId(PlayerId())].Skin;
-  
-  if (pos == null) pos = {x: 686.245, y: 577.950, z: 130.461};
-  if (mdl == null) mdl = 'a_m_m_skater_01';
-  
-  exports.spawnmanager.setAutoSpawnCallback(() => {
-    exports.spawnmanager.spawnPlayer({
-      x: pos['x'],
-      y: pos['y'],
-      z: pos['z'],
-      model: mdl
-    }, () => {
-      emit('chat:addMessage', {
-        args: [
-          `${NodeRP.Locales[Config.Locale]["welcome_msg"]}`
-        ]
-      })
-    });
-  });
-
-  exports.spawnmanager.setAutoSpawn(true)
-  exports.spawnmanager.forceRespawn()
-});
+Player = {};
 
 RegisterNetEvent('NodeRP.Client.SendLocalMsg');
 onNet("NodeRP.Client.SendLocalMsg", (name, id, msg) => {
@@ -96,15 +72,63 @@ onNet("NodeRP.Client.SendDoMsg", (name, id, msg) => {
 	}
 });
 
-onNet("playerSpawned", () => {
-	emit('chat:addMessage', { args: [ `${NodeRP.Locales[Config.Locale]["welcome_msg"]}` ] });
+RegisterNetEvent( 'NodeRP.Client.GetPlayer' );
+onNet( 'NodeRP.Client.GetPlayer', ( id, p ) => NodeRP.Client.GetPlayer( id, p ) );
+
+NodeRP.Client.GetPlayer = ( id, p ) => {
+	Player[ id ] = p;
 	
+	emitNet( 'NodeRP.Server.Log', false, `\x1b[33m[NodeRP Client]\x1b[37m Fetched Player ( ID: \x1b[32m${ id }\x1b[37m )` );
+	
+	return Player[ id ];
+};
+
+RegisterNetEvent( 'NodeRP.Client.DestroyPlayer' );
+onNet( 'NodeRP.Client.DestroyPlayer', ( id ) => {
+	Player[ id ] = null;
+});
+
+setInterval( () => {
 	const ped = PlayerPedId();
-	let model = 'mp_m_freemode_01';
+	const player = GetPlayerServerId( PlayerId() );
+	let coords = GetEntityCoords( ped );
+	let still = IsPedStill( GetPlayerPed( -1 ) );
 	
-	SetEntityCoords(ped, -1070.90625, -2972.122803, 13.773568 + 0.0);
+	if ( !still ) emitNet( 'NodeRP.Server.SavePos', player, coords );
+}, 10000 );
+
+onNet("playerSpawned", () => {
+	let pid = GetPlayerServerId( PlayerId() );
 	
-	let pos = GetEntityCoords(ped);
+	emit('chat:addMessage', { args: [ `${NodeRP.Locales[Config.Locale]["welcome_msg"]}` ] });
+	emitNet( 'NodeRP.Bridge.GetPlayer', pid );
 	
-	emitNet('NodeRP.Server.PlayerSpawned', pos, model);
+	if ( Player[ pid ] == null ) emitNet( 'NodeRP.Bridge.GetPlayer', pid );
+	
+	setTimeout( () => {
+		const ped = PlayerPedId();
+		let firstspawn = Player[ pid ].firstspawn;
+		let model = Player[ pid ].skin;
+		let pos = Player[ pid ].pos;
+		let name = GetPlayerName( PlayerId() );
+		
+		if ( !pos ) {
+			SetEntityCoords( ped, -1070.90625, -2972.122803, 13.773568 + 0.0 );
+			
+			emitNet( 'NodeRP.Server.PlayerSpawned', pid, true );
+			
+			Player[ pid ].firstspawn = false;
+		}
+		else {
+			if ( firstspawn ) {
+				emitNet( 'NodeRP.Server.PlayerSpawned', pid, true );
+			
+				Player[ pid ].firstspawn = false;
+			}
+			
+			SetEntityCoords( ped, pos.X, pos.Y, pos.Z + 0.0 );
+		}
+		
+		emitNet( 'NodeRP.Server.Log', false, `\x1b[33m[NodeRP Client]\x1b[37m ${name} spawned.` );
+	}, 500 );
 });

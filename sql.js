@@ -1,12 +1,10 @@
 const BuildSQL = {
 	1:	`CREATE TABLE IF NOT EXISTS players (
 	identifier varchar(60) NOT NULL,
-	license varchar(60) DEFAULT NULL,
+	steam varchar(60) DEFAULT NULL,
 	discord text DEFAULT NULL,
-	ip decimal(10,0) DEFAULT NULL,
+	ip varchar(20) DEFAULT NULL,
 	skin longtext DEFAULT NULL,
-	job varchar(60) NOT NULL DEFAULT 'unemployed',
-	job_rank int(11) NOT NULL DEFAULT 0,
 	pos varchar(255) DEFAULT NULL,
 	loadout longtext DEFAULT NULL,
 	adminlevel int(11) NOT NULL DEFAULT 0,

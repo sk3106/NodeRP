@@ -1,11 +1,11 @@
-NodeRP.Client.GetPOS = function() {
+NodeRP.Client.GetPOS = () => {
 	let pos = GetEntityCoords(PlayerPedId(), false);
 	let coords = JSON.stringify(pos);
 	
 	return coords;
 };
 
-NodeRP.Client.GetPlayers = function(ids) {
+NodeRP.Client.GetPlayers = ( ids ) => {
 	if(ids != null) {
 		if (NetworkIsPlayerActive(ids)) {
 			let myid = GetPlayerServerId(ids);
@@ -15,7 +15,7 @@ NodeRP.Client.GetPlayers = function(ids) {
 	}
 }
 
-NodeRP.Client.Notify = function(msg) {
+NodeRP.Client.Notify = ( msg ) => {
 	SetNotificationTextEntry('STRING');
 	AddTextComponentSubstringWebsite(msg);
 	DrawNotification(false, true);

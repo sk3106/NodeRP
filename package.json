@@ -3,14 +3,13 @@
   "version": "1.0.0",
   "description": "A Roleplay framework for FiveM written in NodeJS",
   "keywords": [],
-  "author": "Jones3106",
+  "author": "sk3106",
   "license": "GPL-3.0",
   "dependencies": {
-    "geoip-lite": "^1.4.1",
-    "got": "^11.0.2",
+    "geoip-lite": "^1.4.2",
+    "got": "^11.8.2",
     "mysql": "^2.18.1",
-    "node-fetch": "^2.6.0",
-    "test": "^0.6.0",
-    "webpack": "^4.43.0"
+    "node-fetch": "^2.6.1",
+    "webpack": "^5.32.0"
   }
 }

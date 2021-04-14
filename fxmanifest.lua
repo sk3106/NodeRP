@@ -1,8 +1,8 @@
 -- Resource Metadata
-fx_version 'bodacious'
+fx_version 'cerulean'
 game 'gta5'
 
-author 'Jones3106'
+author 'sk3106'
 description 'A simple roleplay framework for FiveM written in NodeJS'
 version '1.1.0'
 

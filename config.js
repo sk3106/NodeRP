@@ -3,12 +3,14 @@ Config = {};
 Config.Locale = "en";											// Server Language like "en" which is for English. Look inside locales folder for other language translations
 Config.EnableExtensions = true;									// Enable or disable Extensions found in the Extensions folder. Example of an Extension is Admin.
 Config.ServerName = "Unnamed Server";							// The server name that will be shown in Messages etc
-Config.EnableAIDispatch = false;									// Enable or disable the default game AI cops, medics, millitary etc
+Config.EnableAIDispatch = false;								// Enable or disable the default game AI cops, medics, millitary etc
+
+Config.SaveInterval = 3 * ( 60 * 1000 )							// Number of minutes after which all players should be saved
 
 Config.Logging = {
 	EnableLogging: true,
-	WebhookURL: "https://discordapp.com/api/webhooks/714860345289867324/2FXyoUniGWxkJ3eqFehoKMbxk5TnrFe9g7W8xfasZO3Qi_HAhPGBGq49rH373Leyy3oo",
-	WebhookIMG: "https://i.imgur.com/MVkUD0Y.png",
+	WebhookURL: 'https://discord.com/api/webhooks/831629221801099284/WhPPIP0n8tov61p_oqlHsd685ereOkPE4V2UrJCd9WxcSguZtRWrz0JW1F1jidpICQC3',
+	WebhookIMG: 'https://i.imgur.com/MVkUD0Y.png',
 	WebhookName: "NodeRP"
 };
 
@@ -24,7 +26,7 @@ Config.ARanks = {												// You can define as many admin ranks as you want h
 
 Config.DB = {
 	User: "root",		 	// 	Your Database username
-	Pass: "test",			// 	Your Database password
+	Pass: "",			// 	Your Database password
 	Host: "localhost",			//	Your Database hostname
 	Name: "noderp"			// 	Name of the Database that you want to use
 };
