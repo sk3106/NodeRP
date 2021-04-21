@@ -99,21 +99,20 @@ setInterval( () => {
 
 onNet("playerSpawned", () => {
 	let pid = GetPlayerServerId( PlayerId() );
-	
-	emit('chat:addMessage', { args: [ `${NodeRP.Locales[Config.Locale]["welcome_msg"]}` ] });
+
 	emitNet( 'NodeRP.Bridge.GetPlayer', pid );
 	
 	if ( Player[ pid ] == null ) emitNet( 'NodeRP.Bridge.GetPlayer', pid );
 	
 	setTimeout( () => {
-		const ped = PlayerPedId();
+		let ped = PlayerPedId();
 		let firstspawn = Player[ pid ].firstspawn;
 		let model = Player[ pid ].skin;
 		let pos = Player[ pid ].pos;
 		let name = GetPlayerName( PlayerId() );
 		
 		if ( !pos ) {
-			SetEntityCoords( ped, -1070.90625, -2972.122803, 13.773568 + 0.0 );
+			SetEntityCoords( ped, Config.DefaultPos[0], Config.DefaultPos[1], Config.DefaultPos[2] );
 			
 			emitNet( 'NodeRP.Server.PlayerSpawned', pid, true );
 			
@@ -128,6 +127,8 @@ onNet("playerSpawned", () => {
 			
 			SetEntityCoords( ped, pos.X, pos.Y, pos.Z + 0.0 );
 		}
+		
+		Player[ pid ].spawned = true;
 		
 		emitNet( 'NodeRP.Server.Log', false, `\x1b[33m[NodeRP Client]\x1b[37m ${name} spawned.` );
 	}, 500 );

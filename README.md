@@ -15,17 +15,14 @@ NodeRP is a simple RP framework for FiveM written in JavaScript/NodeJS. It store
 - Everything can be configured in config.js and Database
 - Data handling(saving and loading data from the Database)
 - Logging through Discord Webhooks
+- Server can also be controlled through Discord using NodeRP Bot
 - Language Localization
-- Basic admin features
-- Basic Jobs
-- Basic Properties
-- Basic Shops/Businesses
-- Basic vehicle system
 - Commands can be added easily
-- Graphical interface for menus, dialogs etc
+- Graphical Interface for menus, dialogs etc
 - Support for creating addon resources
 
 ## Dependencies
+- Latest version of FiveM Server
 - NodeJS
 - MySQL Database
 - Yarn(comes with FiveM Server data in most cases)
@@ -33,7 +30,7 @@ NodeRP is a simple RP framework for FiveM written in JavaScript/NodeJS. It store
 ## Installation
 - Put the folder named 'NodeRP' in your resources/\[local] folder
 - Create a Database with the name of your choice(don't forget to set it in config.js)
-- Add `ensure NodeRP` to server.cfg
+- Add `ensure NodeRP` to server.cfg just after the default FiveM resources
 - Add `add_ace resource.NodeRP command.add_principal allow` and `add_ace resource.NodeRP command.add_ace allow` to server.cfg
 - Open config.js and fill in the details such as MySQL username, password, discord webhook url etc
 - Start the server and enjoy
@@ -43,24 +40,21 @@ You can find the documentation at [NodeRP Website](https://noderp.sk-jones.com).
 
 ## TODO
 ### Misc
-- [ ] Find a way to get info from server on client like a callback
+- [x] Find a way to get info from server on client like a callback
 - [ ] Add basic UI
 - [ ] Write documentation on website
 
 ### v2.0.0 BETA
-- [ ] Find a way to connect other resources/scripts through an API
+- [x] Find a way to connect other resources/scripts through an API
 - [x] Change player authentication from Steam to License
-- [ ] Fix player auto save issues
+- [x] Fix player auto save issues
 - [x] Save player skin and position every x minutes
-- [ ] Spawn player at last position with last skin
-- [ ] Add a better way to create NodeRP based resources
+- [x] Spawn player at last position
+- [x] Basic Admin stuff
 
 ### v2.x.x BETA
+- [ ] Set player skin at spawn
 - [ ] Add menus, blips
-- [ ] Add basic shops
-- [ ] Add basic admin system
-- [ ] Add basic vehicle system
-- [ ] Add basic property system
 
 ## FAQs
 **Q:** I'm getting 

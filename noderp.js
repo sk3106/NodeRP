@@ -14,6 +14,7 @@ NodeRP.Player = class {
 		this.lvl = 0;
 		this.skin = 'mp_m_freemode_01';
 		this.pos = null;
+		this.spawned = false;
 	}
 
 	set Pos( p ) { this.pos = p; }
@@ -26,6 +27,7 @@ NodeRP.Player = class {
 	set IP( ip ) { this.ip = ip; }
 	set Skin( ski ) { this.skin = ski; }
 	set Identifier( iden ) { this.id = iden; }
+	set Spawned( sp ) { this.spawned = sp; }
 	
 	get Pos() { return this.pos; }
 	get Dead() { return this.dead; }
@@ -37,6 +39,7 @@ NodeRP.Player = class {
 	get IP() { return this.ip; }
 	get Skin() { return this.skin; }
 	get Identifier() { return this.id; }
+	get Spawned() { return this.spawned; }
 	
 	SavePlayer( cb ) {
 		let data = null;
@@ -54,7 +57,12 @@ NodeRP.Player = class {
 	}
 };
 
-/*RegisterNetEvent('NodeRP.Server.Load');
-onNet('NodeRP.Server.Load', function (cb) {
-	return cb(NodeRP);
-});*/
+NodeRP.Player.Get = ( id ) => {
+	let p = null;
+	
+	emit( 'NodeRP.Player.Get', id, ( r ) => {
+		p = r;
+	});
+	
+	if ( p ) return p;
+}

@@ -1,30 +1,7 @@
-var mysql = require('mysql');
-
-var con = mysql.createConnection({
-	host: Config.DB.Host,
-	user: Config.DB.User,
-	password: Config.DB.Pass,
-	database: Config.DB.Name
-});
-
-con.connect(function(err) {
-	if (err) throw err;
-  
-	console.log("\x1b[33m[NodeRP MySQL] \x1b[32mConnected to Database!\x1b[37m");
-  
-	NodeRP.DB.Query('SHOW TABLES LIKE ?', 'players', function (err, res) {
-		if (err) throw err;
-		
-		if (typeof res[0] != 'object') {
-			NodeRP.DB.Build();
-		} else {
-			emit('NodeRP.Ready');
-		}
-    });
-});
-
 NodeRP.DB.Query = (q, args, cb) => {
-	con.query(q, args, cb);
+	setTimeout( () => {
+		exports[ 'NodeRP' ][ 'Query' ]( q, args, cb );
+	}, 0 );
 };
 
 NodeRP.DB.Build = (cb) => {

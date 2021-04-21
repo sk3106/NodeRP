@@ -3,6 +3,13 @@ onNet( 'NodeRP.Ready', () => {
 	console.log( "\x1b[33m[NodeRP] \x1b[32mNodeRP is ready!\x1b[37m" );
 });
 
+RegisterNetEvent( 'NodeRP.Player.Get' );
+onNet( 'NodeRP.Player.Get', ( id, cb ) => {
+	let p = Player[ id ];
+	
+	cb( p );
+});
+
 on( 'playerConnecting' , ( name, setKickReason, deferrals ) => {
     deferrals.defer()
 
@@ -79,8 +86,6 @@ on( 'playerConnecting' , ( name, setKickReason, deferrals ) => {
 						Player[ license ].Country = result[0].country;
 						Player[ license ].Steam = result[0].steam;
 						Player[ license ].IP = newip;
-						
-						let smth = new NodeRP.Player( license );
 
 						console.log( `\x1b[33m[NodeRP MySQL] \x1b[37m${name} ${NodeRP.Locales[Config.Locale]["Player_Loaded"]}` );
 					}
@@ -156,10 +161,7 @@ on( 'playerDropped', ( reason ) => {
 });
 
 RegisterNetEvent( 'NodeRP.Server.Log' );
-onNet( 'NodeRP.Server.Log', ( dfault, arg ) => {
-	if ( dfault ) console.log( `\x1b[33m[NodeRP Log]\x1b[37m ${ arg }` );
-	else console.log( arg );
-});
+onNet( 'NodeRP.Server.Log', ( dfault, ...arg ) => NodeRP.Server.Log( dfault, ...arg ) );
 
 RegisterNetEvent( 'NodeRP.Server.PlayerSpawned' );
 onNet( 'NodeRP.Server.PlayerSpawned', ( player, firstspawn ) => {
@@ -173,7 +175,7 @@ onNet( 'NodeRP.Server.PlayerSpawned', ( player, firstspawn ) => {
 RegisterNetEvent( 'NodeRP.Server.SavePos' );
 onNet( 'NodeRP.Server.SavePos', ( player, coords ) => {
 	const id = GetPlayerIdentifier( player, 1 );
-	let posx = Number( coords[0] ), posy = Number( coords[1] ), posz = Number( coords[2] );
+	let posx = coords[0], posy = coords[1], posz = coords[2];
 	let newpos = JSON.stringify({ X: posx, Y: posy, Z: posz });
 	
 	Player[ id ].Pos = newpos;
@@ -186,7 +188,10 @@ NodeRP.Server.SavePlayers = () => {
 		const player = GetPlayerFromIndex( pidx );
 		let curid = GetPlayerIdentifier( player, 1 );
 		
-		let pos = Player[ curid ].Pos, skin = Player[ curid ].Skin, dead = Player[ curid ].Dead;
+		if ( curid == null ) continue;
+		
+		let plpos = Player[ curid ].Pos;
+		let pos = JSON.stringify({ X: plpos.X, Y: plpos.Y, Z: plpos.Z }), skin = Player[ curid ].Skin, dead = Player[ curid ].Dead;
 		let loadout = Player[ curid ].Loadout, level = Player[ curid ].Level, country = Player[ curid ].Country;
 		let playa = [ skin, pos, level, loadout, dead, country ];
 		

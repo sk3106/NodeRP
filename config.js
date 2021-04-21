@@ -5,7 +5,9 @@ Config.EnableExtensions = true;									// Enable or disable Extensions found in
 Config.ServerName = "Unnamed Server";							// The server name that will be shown in Messages etc
 Config.EnableAIDispatch = false;								// Enable or disable the default game AI cops, medics, millitary etc
 
-Config.SaveInterval = 3 * ( 60 * 1000 )							// Number of minutes after which all players should be saved
+Config.SaveInterval = 3 * ( 60 * 1000 );							// Number of minutes after which all players should be saved
+
+Config.DefaultPos = [ -1070.90625, -2972.122803, 13.773568 + 0.0 ];
 
 Config.Logging = {
 	EnableLogging: true,

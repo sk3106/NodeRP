@@ -4,7 +4,7 @@ game 'gta5'
 
 author 'sk3106'
 description 'A simple roleplay framework for FiveM written in NodeJS'
-version '1.1.0'
+version '2.0.0'
 
 -- What to run
 client_scripts {
@@ -20,6 +20,7 @@ server_scripts {
 	'config.js',
 	'sql.js',
 	'locales/*.js',
+	'mysql.js',
 	'server/functions.js',
 	'server/*.js',
 	'shared/*.js',
