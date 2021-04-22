@@ -1,8 +1,6 @@
 RegisterNetEvent( 'NodeRP.Client.Get' );
 onNet( 'NodeRP.Client.Get', ( cb ) => cb( NodeRP.Client ) );
 
-Greet();
-
 NodeRP.Client.GetPOS = () => {
 	let pos = GetEntityCoords(PlayerPedId(), false);
 	let coords = JSON.stringify(pos);
@@ -18,12 +16,6 @@ NodeRP.Client.GetPlayers = ( ids ) => {
 			return myid;
 		}
 	}
-}
-
-Greet = () => {
-	let params = { xyz: { x: Config.DefaultPos[0], y: Config.DefaultPos[1], z: Config.DefaultPos[2]}, text: { content: `${NodeRP.Locales[Config.Locale]["welcome_msg"]}`, rgb: [245, 66, 108], textOutline: true, scaleMultiplier: 0.8, font: 1 }, perspectiveScale: 3.2, radius: 500 };
-	
-	NodeRP.Client.Draw3DText( params );
 }
 
 NodeRP.Client.Notify = ( msg ) => {
@@ -91,6 +83,14 @@ RegisterNetEvent( 'NodeRP.Client.Notify' );
 onNet( "NodeRP.Client.Notify", ( msg ) => {
    NodeRP.Client.Notify( msg );
 });
+
+Greet = () => {
+	let params = { xyz: { x: Config.DefaultPos[0], y: Config.DefaultPos[1], z: Config.DefaultPos[2]}, text: { content: `${NodeRP.Locales[Config.Locale]["welcome_msg"]}`, rgb: [245, 66, 108], textOutline: true, scaleMultiplier: 0.8, font: 1 }, perspectiveScale: 3.2, radius: 500 };
+	
+	NodeRP.Client.Draw3DText( params );
+}
+
+Greet();
 
 if ( !Config.EnableAIDispatch ) {
 	for ( let i = 0; i < 15; i++ ) {

@@ -2,7 +2,7 @@
 [![](https://noderp.sk-jones.com/api/v1.svg)](https://github.com/sk3106/NodeRP/releases) [![](https://img.shields.io/github/license/sk3106/NodeRP)](https://github.com/sk3106/NodeRP/blob/master/LICENSE) [![Hits](http://hits.dwyl.com/sk3106/NodeRP.svg)](http://hits.dwyl.com/sk3106/NodeRP)
 
 
-***NOTE: This framework is currently in ALPHA. If you find any bugs please report them and do not use it for production.***
+***NOTE: This framework is currently in BETA. If you find any bugs please report them by creating an issue in the issues tab.***
 
 A Lightweight & Simple Roleplay framework for FiveM written in NodeJS
 
@@ -73,7 +73,10 @@ What should I do?
 **A:** Support( Any type e.g development etc ) and Donations are welcomed and will help keep the framework running. You can contact me on [Discord](https://discord.gg/uCWBMcQg)(Jones#6426) or through [Email](mailto:mail.thejones@gmail.com).
 
 ## Screenshots
-![Discord Embed](https://i.imgur.com/rmp3oxV.png)
+![Discord Embed](https://i.imgur.com/CpwEPbT.png)
 ![NodeRP Startup Messages First Time](https://i.imgur.com/esti5tA.png)
-![NodeRP Usual Startup Messages](https://i.imgur.com/1Zgfxm5.png)
-![NodeRP First generation spawn](https://i.imgur.com/Q5C5sNu.jpg)
+![NodeRP Usual Startup Messages](https://i.imgur.com/qFqWUEq.png)
+![NodeRP Player Join Msgs](https://i.imgur.com/SvsIdqr.png)
+![NodeRP Second Gen Spawn](https://i.imgur.com/ry5gW2j.jpg)
+![NodeRP Player Save](https://i.imgur.com/Cig95oU.png)
+![NodeRP Discord Player Leave](https://i.imgur.com/0T2zloK.png)
