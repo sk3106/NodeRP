@@ -40,20 +40,18 @@ You can find the documentation at [NodeRP Website](https://noderp.sk-jones.com).
 
 ## TODO
 ### Misc
-- [x] Find a way to get info from server on client like a callback
 - [ ] Add basic UI
 - [ ] Write documentation on website
 
-### v2.0.0 BETA
-- [x] Find a way to connect other resources/scripts through an API
-- [x] Change player authentication from Steam to License
-- [x] Fix player auto save issues
-- [x] Save player skin and position every x minutes
-- [x] Spawn player at last position
-- [x] Basic Admin stuff
+### v2.1.0 BETA
+- [x] Set player skin at spawn
+- [x] Add Death/Revival System
+- [x] Spawn player at Closest Hospital when dead
+- [x] Fix bugs
+- [x] Add better Spawn System
+- [x] Add a better way for Delays
 
 ### v2.x.x BETA
-- [ ] Set player skin at spawn
 - [ ] Add menus, blips
 
 ## FAQs
