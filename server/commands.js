@@ -30,6 +30,13 @@ NodeRP.Server.RegisterCommand( "do", "player", async ( source, args ) => {
 	emitNet( "NodeRP.Client.SendDoMsg", -1, name, id, msg );
 }, NodeRP.Locales[ Config.Locale ][ "chat_suggestions" ][ "do" ] );
 
+NodeRP.Server.RegisterCommand( "revive", "player", async ( source, args ) => {
+	let target = ( !args[ 0 ] ) ? source : args[ 0 ];
+	let myname = GetPlayerName( source );
+	
+	emitNet( "NodeRP.Client.SpawnDeadPlayer", target, true, myname );
+}, NodeRP.Locales[ Config.Locale ][ "chat_suggestions" ][ "revive" ] );
+
 NodeRP.Server.RegisterCommand( "cmds", "player", async ( source, args ) => {
 	let commands = NodeRP.Commands;
 	let cmd = null;

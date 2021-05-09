@@ -63,3 +63,5 @@ exports('NodeRP.Server.GetPlayerData', (id, cb) => {
 		}
 	});
 });
+
+const WaitFor = ( ms ) => new Promise( resolve => setTimeout( resolve, ms ) );

@@ -30,3 +30,7 @@ exports( 'Query', ( q, args, cb ) => {
 		pool.query( q, args, cb );
 	}, 0 );
 });
+
+exports( 'PoolEND', ( cb ) => {
+	pool.end( cb );
+});

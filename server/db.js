@@ -4,6 +4,8 @@ NodeRP.DB.Query = (q, args, cb) => {
 	}, 0 );
 };
 
+NodeRP.DB.Shutdown = ( cb ) => exports[ 'NodeRP' ][ 'PoolEND' ]( cb );
+
 NodeRP.DB.Build = (cb) => {
 	console.log('\x1b[33m[NodeRP MySQL] \x1b[36mBuilding Database...\x1b[37m');
 	

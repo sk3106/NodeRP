@@ -14,7 +14,8 @@ NodeRP.Locales["en"] = {
 	"Global_Chat": "[GLOBAL]",
 	"invalid_cmd": "^1Invalid ^0cmd, ^0type ^2/cmds^0 to take a look at the commands available.",
 	"Available_Commands": "List of available commands",
-	"cmd_exists": "is already registered. Skipping."
+	"cmd_exists": "is already registered. Skipping.",
+	"Bleed-Text": "~w~You will ~r~bleed out~w~ in"
 };
 
 NodeRP.Locales["en"]["chat_suggestions"] = {
@@ -23,5 +24,6 @@ NodeRP.Locales["en"]["chat_suggestions"] = {
 	"me": `{ help: 'Do an action', arguments: [ { name: 'text', help: 'Text' } ] }`,
 	"do": `{ help: 'Describe something related to your action', arguments: [ { name: 'text', help: 'Text' } ] }`,
 	"cmds": `{ help: 'Shows a list of available commands' }`,
-	"admins": `{ help: 'Shows a list of online administrators' }`
+	"admins": `{ help: 'Shows a list of online administrators' }`,
+	"revive": `{ help: 'Revive a player' }`
 };

@@ -136,15 +136,17 @@ on( 'playerDropped', ( reason ) => {
 	let name = GetPlayerName( player );
 	let ip = Player[ id ].IP;
 	
-	Player[ id ].SavePlayer( result => {
-		if ( result ) {
-			console.log( `\x1b[33m[NodeRP MySQL]\x1b[32m ${name} ${NodeRP.Locales[Config.Locale]["Saved"]}\x1b[37m` );
-			Player[ player ] = null;
-		}
-		else {
-			console.log(`\x1b[33m[NodeRP MySQL]\x1b[31m ${NodeRP.Locales[Config.Locale]["Save_Error"]} ${name}\x1b[37m`);
-		}
-	});
+	if ( !Player[ id ].FirstSpawn ) {
+		Player[ id ].SavePlayer( result => {
+			if ( result ) {
+				console.log( `\x1b[33m[NodeRP MySQL]\x1b[32m ${name} ${NodeRP.Locales[Config.Locale]["Saved"]}\x1b[37m` );
+				Player[ player ] = null;
+			}
+			else {
+				console.log(`\x1b[33m[NodeRP MySQL]\x1b[31m ${NodeRP.Locales[Config.Locale]["Save_Error"]} ${name}\x1b[37m`);
+			}
+		});
+	}
 	
 	let fields = [{
 		name: `IP`,
@@ -158,6 +160,13 @@ on( 'playerDropped', ( reason ) => {
 	}]
 
 	emit( 'discord.sendEmbed', `${NodeRP.Locales[Config.Locale]["Discord-Player_Dropped"]}`, `${name}`, fields, discord.colors.RED );
+});
+
+on( 'onResourceStop', ( resourceName ) => {
+	if ( GetCurrentResourceName() != resourceName ) return 0;
+
+	NodeRP.DB.Shutdown();
+	NodeRP.Server.Log( false, '\x1b[33m[NodeRP] \x1b[31mNodeRP is shutting down!\x1b[37m' );
 });
 
 RegisterNetEvent( 'NodeRP.Server.Log' );
@@ -175,6 +184,9 @@ onNet( 'NodeRP.Server.PlayerSpawned', ( player, firstspawn ) => {
 RegisterNetEvent( 'NodeRP.Server.SavePos' );
 onNet( 'NodeRP.Server.SavePos', ( player, coords ) => {
 	const id = GetPlayerIdentifier( player, 1 );
+	
+	if ( !id ) return 0;
+	
 	let posx = coords[0], posy = coords[1], posz = coords[2];
 	let newpos = JSON.stringify({ X: posx, Y: posy, Z: posz });
 	

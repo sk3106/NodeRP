@@ -11,6 +11,7 @@ client_scripts {
     'noderp.js',
 	'config.js',
 	'locales/*.js',
+	'shared/functions.js',
 	'client/*.js',
 	'extensions/**/client/*.js'
 }
