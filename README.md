@@ -1,5 +1,5 @@
 # NodeRP
-[![](https://noderp.sk-jones.com/api/v1.svg)](https://github.com/sk3106/NodeRP/releases) [![](https://img.shields.io/github/license/sk3106/NodeRP)](https://github.com/sk3106/NodeRP/blob/master/LICENSE) [![Hits](http://hits.dwyl.com/sk3106/NodeRP.svg)](http://hits.dwyl.com/sk3106/NodeRP)
+[![](https://noderp.sk-jones.com/api/v1.svg)](https://github.com/sk3106/NodeRP/releases) [![](https://img.shields.io/github/license/sk3106/NodeRP)](https://github.com/sk3106/NodeRP/blob/master/LICENSE) [![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fsk3106%2FNodeRP&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)]()
 
 
 ***NOTE: This framework is currently in BETA. If you find any bugs please report them by creating an issue in the issues tab.***
