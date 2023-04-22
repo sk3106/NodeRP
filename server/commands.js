@@ -53,7 +53,7 @@ NodeRP.Server.RegisterCommand( "cmds", "player", async ( source, args ) => {
 
 NodeRP.Server.RegisterCommand( "admins", "player", async ( source, args ) => {
 	NodeRP.DB.Query( 'SELECT * FROM players WHERE adminlevel >= ?', 1, ( err, result ) => {
-		if ( err ) throw err;
+		if ( err ) console.error( err );
 		
 		if ( result[0] != null && result[0].adminlevel >= 1 ) {
 			for ( let i = 0; i < result.length; i++ ) {

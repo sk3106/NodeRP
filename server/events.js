@@ -52,7 +52,7 @@ on( 'playerConnecting' , ( name, setKickReason, deferrals ) => {
 				let newip = ip.replace( 'ip:', '' );
 				
 				NodeRP.DB.Query( 'SELECT * FROM players WHERE identifier = ?', license, ( err, result, fields ) => {
-					if ( err ) throw err;
+					if ( err ) console.error( err );
 				
 					if ( result[0] == null || result[0].identifier == null ) {
 						let geo = exports[ 'NodeRP' ][ 'GetGeoIP' ]( newip );
@@ -64,7 +64,7 @@ on( 'playerConnecting' , ( name, setKickReason, deferrals ) => {
 						const playerdata = [ license, steamIdentifier, discord, newip, skin, PC ];
 
 						NodeRP.DB.Query( 'INSERT INTO players ( identifier, steam, discord, ip, skin, country ) VALUES ( ?, ?, ?, ?, ?, ? )', playerdata, ( err, res ) => {
-							if ( err ) throw err;
+							if ( err ) console.error( err );
 						  
 							Player[ license ] = new NodeRP.Player( license );
 							Player[ license ].Steam = steamIdentifier;
@@ -188,7 +188,7 @@ onNet( 'NodeRP.Server.SavePos', ( player, coords ) => {
 	if ( !id ) return 0;
 	
 	let posx = coords[0], posy = coords[1], posz = coords[2];
-	let newpos = JSON.stringify({ X: posx, Y: posy, Z: posz });
+	let newpos = { x: posx, y: posy, z: posz };
 	
 	Player[ id ].Pos = newpos;
 });
@@ -202,13 +202,16 @@ NodeRP.Server.SavePlayers = () => {
 		
 		if ( curid == null ) continue;
 		
-		let plpos = Player[ curid ].Pos;
-		let pos = JSON.stringify({ X: plpos.X, Y: plpos.Y, Z: plpos.Z }), skin = Player[ curid ].Skin, dead = Player[ curid ].Dead;
+		let plpos = ( Player[ curid ].Pos ? Player[ curid ].Pos : Config.DefaultPos );
+		let pos = JSON.stringify({ x: plpos.x, y: plpos.y, z: plpos.z }), skin = Player[ curid ].Skin, dead = Player[ curid ].Dead;
 		let loadout = Player[ curid ].Loadout, level = Player[ curid ].Level, country = Player[ curid ].Country;
+		
+		if ( !Player[ curid ].Loadout || Player[ curid ].Loadout == null || Player[ curid ].Loadout == '' ) Player[ curid ].Loadout = JSON.stringify({});
+		
 		let playa = [ skin, pos, level, loadout, dead, country ];
 		
 		NodeRP.DB.Query( 'UPDATE players SET skin = ?, pos = ?, adminlevel = ?, loadout = ?, dead = ?, country = ?', playa, ( err, res ) => {
-			if ( err ) throw err;
+			if ( err ) console.error( err );
 			
 			console.log(`\x1b[33m[NodeRP]\x1b[37m Saved ${numIndices} players!`);
 		});

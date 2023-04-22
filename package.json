@@ -6,10 +6,8 @@
   "author": "sk3106",
   "license": "GPL-3.0",
   "dependencies": {
-    "geoip-lite": "^1.4.2",
-    "got": "^11.8.2",
-    "mysql": "^2.18.1",
-    "node-fetch": "^2.6.1",
-    "webpack": "^5.32.0"
+    "geoip-lite": "^1.4.7",
+    "mysql2": "3.2.0",
+    "node-fetch": "^2"
   }
 }

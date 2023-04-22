@@ -1,5 +1,18 @@
 var PlayerDead = false;
 
+PreSpawnPlayer = () => {
+    DoScreenFadeOut( 500 );
+    WaitFor( 2000 );
+};
+
+PostSpawnPlayer = ( ped ) => {
+    FreezeEntityPosition( ped, false );
+    RenderScriptCams( false, true, 500, true, true );
+    SetEntityVisible( PlayerPedId(), true );
+    WaitFor( 500 );
+    DoScreenFadeIn( 250 );
+};
+
 on( 'onClientMapStart', () => {
 	exports.spawnmanager.setAutoSpawn( false );
 	
@@ -11,21 +24,44 @@ on( 'onClientMapStart', () => {
 	
 	setTimeout( async () => {
 		let ped = PlayerPedId();
+		
+		if ( !Player[ pid ] ) await emitNet( 'NodeRP.Bridge.GetPlayer', pid );
+		if ( !Player[ pid ] ) await WaitFor( 50 );
+		
+		emitNet( 'NodeRP.Bridge.GetPlayer', pid )
+		
 		let firstspawn = Player[ pid ].firstspawn;
 		let model = Player[ pid ].skin;
 		let pos = Player[ pid ].pos;
 		let name = GetPlayerName( PlayerId() );
 		
-		if ( !pos ) {
+		if ( !pos || pos == null || pos == 'null' ) {
 			let stuff = { x: Config.DefaultPos[0], y: Config.DefaultPos[1], z: Config.DefaultPos[2], model: model };
 			
-			exports[ 'spawnmanager' ][ 'spawnPlayer' ]( stuff, () => {
-				SetPedDefaultComponentVariation( PlayerPedId() );
+			PreSpawnPlayer();
+			SetEntityCoords( ped, stuff.x, stuff.y, stuff.z );
+
+			if ( IsModelInCdimage( model ) && IsModelValid( model ) )
+			{
+				RequestModel( model );
+			  
+				while ( !HasModelLoaded( model ) ) await WaitFor( 500 );
+			  
+				SetPlayerModel( PlayerId(), model );
+				SetModelAsNoLongerNeeded( model );
 				
-				emitNet( 'NodeRP.Server.PlayerSpawned', pid, true );
+				ped = PlayerPedId();
+			}
 			
-				Player[ pid ].firstspawn = false;
-			});
+			SetPedDefaultComponentVariation( PlayerPedId() );
+			ShutdownLoadingScreenNui();
+
+			emitNet( 'NodeRP.Server.PlayerSpawned', pid, true );
+			
+			WaitFor( 500 );
+			
+			SetEntityCoords( ped, stuff.x, stuff.y, stuff.z );
+			PostSpawnPlayer( ped );
 		}
 		else {
 			if ( firstspawn ) {
@@ -34,9 +70,36 @@ on( 'onClientMapStart', () => {
 				Player[ pid ].firstspawn = false;
 			}
 			
-			let stuff = { x: pos.X, y: pos.Y, z: pos.Z + 0.00, model: model };
+			emitNet( 'NodeRP.Server.Log', false, pos );
 			
-			exports[ 'spawnmanager' ][ 'spawnPlayer' ]( stuff, () => SetPedDefaultComponentVariation( PlayerPedId() ) );
+			if ( pos.x == null || !pos ) pos = Config.DefaultPos;
+			
+			let stuff = { x: pos.x, y: pos.y, z: pos.z + 0.00, model: model };
+			
+			PreSpawnPlayer();
+			SetEntityCoords( ped, stuff.x, stuff.y, stuff.z );
+
+			if ( IsModelInCdimage( model ) && IsModelValid( model ) )
+			{
+				RequestModel( model );
+			  
+				while ( !HasModelLoaded( model ) ) await WaitFor( 500 );
+			  
+				SetPlayerModel( PlayerId(), model );
+				SetModelAsNoLongerNeeded( model );
+				
+				ped = PlayerPedId();
+			}
+			
+			SetPedDefaultComponentVariation( PlayerPedId() );
+			ShutdownLoadingScreenNui();
+
+			emitNet( 'NodeRP.Server.PlayerSpawned', pid, true );
+			
+			WaitFor( 500 );
+			
+			SetEntityCoords( ped, stuff.x, stuff.y, stuff.z );
+			PostSpawnPlayer( ped );
 		}
 		
 		Player[ pid ].spawned = true;

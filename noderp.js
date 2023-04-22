@@ -45,12 +45,16 @@ NodeRP.Player = class {
 		let data = null;
 		let identifier = this.id;
 		let skin = this.skin, pos = this.pos, level = this.lvl, loadout = this.loadout, dead = this.dead;
-		let playa = [ skin, pos, level, loadout, dead ];
+		
+		if ( !pos || pos.x == null ) pos = JSON.stringify({ x: Config.DefaultPos[0], y: Config.DefaultPos[1], z: Config.DefaultPos[2] });
+		if ( !loadout || loadout == '' ) loadout = JSON.stringify({});
+		
+		let playa = [ skin, JSON.stringify( pos ), level, loadout, dead ];
 		
 		NodeRP.DB.Query( 'UPDATE players SET skin = ?, pos = ?, adminlevel = ?, loadout = ?, dead = ?', playa, ( err, res ) => {
 			if ( err ) {
 				cb( false );
-				throw err;
+				console.error( err );
 			}
 			else return cb( true );
 		});

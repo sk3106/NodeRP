@@ -29,6 +29,9 @@ on( 'NodeRP.Server.PlayerSpawned', ( p, fspawn ) => {
 
 on( 'playerDropped', ( reason ) => {
     const player = global.source;
+	
+	if ( !player ) return 0;
+	
 	const id = GetPlayerIdentifier( player, 1 );
 
 	if ( Admin[ id ] ) Admin[ id ] = null;

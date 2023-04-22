@@ -2,15 +2,14 @@ Config = {};
 
 Config.Locale = "en";											// Server Language like "en" which is for English. Look inside locales folder for other language translations
 Config.EnableExtensions = true;									// Enable or disable Extensions found in the Extensions folder. Example of an Extension is Admin.
-Config.ServerName = "Unnamed Server";							// The server name that will be shown in Messages etc
+Config.ServerName = "NodeRP Testing Server";					// The server name that will be shown in Messages etc
 Config.EnableAIDispatch = false;								// Enable or disable the default game AI cops, medics, millitary etc
 
-Config.SaveInterval = 3 * ( 60 * 1000 );							// Number of minutes after which all players should be saved
+Config.SaveInterval = 3 * ( 60 * 1000 );						// Number of minutes after which all players should be saved
 
-Config.DefaultPos = [ -1070.90625, -2972.122803, 13.773568 + 0.0 ];
+Config.DefaultPos = { x: -1070.90625, y: -2972.122803, z: 13.773568 + 0.0 };
 
 Config.Revive = true;
-//Config.BleedoutInterval = 2 * 60;
 Config.BleedoutInterval = 30;
 Config.ReviveHealth = 200;
 Config.ReviveRespawn = false;
@@ -18,7 +17,7 @@ Config.HospitalRadius = 70000000;
 
 Config.Logging = {
 	EnableLogging: true,
-	WebhookURL: 'https://discord.com/api/webhooks/831629221801099284/WhPPIP0n8tov61p_oqlHsd685ereOkPE4V2UrJCd9WxcSguZtRWrz0JW1F1jidpICQC3',
+	WebhookURL: 'https://discordapp.com/api/webhooks/1099370771199037540/csk0NNe9VngSdDb73gGN9CeVI0SRkJo3q7RfqmMRfrz7ySJu8pfGCWmtjAUSwPLZ9rU_',
 	WebhookIMG: 'https://i.imgur.com/MVkUD0Y.png',
 	WebhookName: "NodeRP"
 };
@@ -34,10 +33,10 @@ Config.ARanks = {												// You can define as many admin ranks as you want h
 };
 
 Config.DB = {
-	User: "root",		 	// 	Your Database username
-	Pass: "",			// 	Your Database password
-	Host: "localhost",			//	Your Database hostname
-	Name: "noderp"			// 	Name of the Database that you want to use
+	User: "root",		 										// 	Your Database username
+	Pass: "",													// 	Your Database password
+	Host: '127.0.0.1',											//	Your Database hostname
+	Name: "noderp"												// 	Name of the Database that you want to use
 };
 
 Config.Hospitals = [

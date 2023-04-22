@@ -18,7 +18,7 @@ NodeRP.DB.Build = (cb) => {
 		if (err) {
 			console.log('\x1b[33m[NodeRP MySQL] \x1b[31mDatabase Build failed!\x1b[37m');
 			
-			throw err;
+			console.error( err );
 		}
 	});
 	
@@ -26,7 +26,7 @@ NodeRP.DB.Build = (cb) => {
 		if (err) {
 			console.log('\x1b[33m[NodeRP MySQL] \x1b[31mDatabase Build failed!\x1b[37m');
 			
-			throw err;
+			console.error( err );
 		}
 	});
 	
@@ -34,7 +34,7 @@ NodeRP.DB.Build = (cb) => {
 		if (err) {
 			console.log('\x1b[33m[NodeRP MySQL] \x1b[31mDatabase Build failed!\x1b[37m');
 			
-			throw err;
+			console.error( err );
 		}
 	});
 	
@@ -42,7 +42,7 @@ NodeRP.DB.Build = (cb) => {
 		if (err) {
 			console.log('\x1b[33m[NodeRP MySQL] \x1b[31mDatabase Build failed!\x1b[37m');
 			
-			throw err;
+			console.error( err );
 		}
 	});
 };

@@ -1,4 +1,4 @@
-var mysql = require('mysql');
+var mysql = require('mysql2');
 
 var pool = mysql.createPool({
 	connectionLimit: 50,
