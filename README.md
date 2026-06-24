@@ -1,8 +1,8 @@
 # NodeRP
-[![](](https://github.com/sk3106/NodeRP/releases) [![](https://img.shields.io/github/license/sk3106/NodeRP)](https://github.com/sk3106/NodeRP/blob/master/LICENSE)
+[![]](https://github.com/sk3106/NodeRP/releases) [![](https://img.shields.io/github/license/sk3106/NodeRP)](https://github.com/sk3106/NodeRP/blob/master/LICENSE)
 
 
-***NOTE: This framework is outdated and work has been stopped for a while. If you would like to continue working on it, please create a fork.
+***NOTE: This framework is outdated and work has been stopped for a while. If you would like to continue working on it, please create a fork.***
 ~~***NOTE: This framework is currently in BETA. If you find any bugs please report them by creating an issue in the issues tab.***~~
 
 A Lightweight & Simple Roleplay framework for FiveM written in NodeJS
