@@ -1,8 +1,9 @@
 # NodeRP
-[![](https://noderp.sk-jones.com/api/v1.svg)](https://github.com/sk3106/NodeRP/releases) [![](https://img.shields.io/github/license/sk3106/NodeRP)](https://github.com/sk3106/NodeRP/blob/master/LICENSE) [![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fsk3106%2FNodeRP&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)]()
+[![](](https://github.com/sk3106/NodeRP/releases) [![](https://img.shields.io/github/license/sk3106/NodeRP)](https://github.com/sk3106/NodeRP/blob/master/LICENSE)
 
 
-***NOTE: This framework is currently in BETA. If you find any bugs please report them by creating an issue in the issues tab.***
+***NOTE: This framework is outdated and work has been stopped for a while. If you would like to continue working on it, please create a fork.
+~~***NOTE: This framework is currently in BETA. If you find any bugs please report them by creating an issue in the issues tab.***~~
 
 A Lightweight & Simple Roleplay framework for FiveM written in NodeJS
 
@@ -66,9 +67,6 @@ What should I do?
 
 **A:** If you have the newest server artifacts and NodeRP version and you have double checked the config.js file then you should use the create an issue option in the Issues tab of this repository.
 
-**Q:** I'd like to support the development of this framework, who should I contact or what do I need to do?
-
-**A:** Any kind of support is welcomed and will help keep the framework running. You could contact us on [Email](mailto:mail.thejones@gmail.com).
 
 ## Screenshots
 ![Discord Embed](https://i.imgur.com/CpwEPbT.png)
